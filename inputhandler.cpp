@@ -1,8 +1,8 @@
 #include <iostream>
 #include <limits>
-#include <sstream>
+#include <typeinfo>
 
-void ignore_line()
+inline void ignore_line()
 {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
@@ -21,19 +21,16 @@ int input_handler_range(int min, int max) {
     }
 }
 
-float input_handler_string(bool datatype) {
+float input_handler() {
     while (true) {
-        std::stringstream input{};
-        if (datatype) {
-            float num_input{};
-            if (std::cin.fail()) {
-                std::cin.clear();
-                ignore_line();
-                std::cout << "Invalid input. Please try again.\n" << std::endl;
-            } else {
-                input >> num_input;
-                return num_input;
-            }
+        float input{};
+        std::cin >> input;
+        if (input < 0 || std::cin.fail()) {
+            std::cin.clear();
+            ignore_line();
+            std::cout << "Invalid input. Please try again.\n" << std::endl;
+        } else {
+            return input;
         }
     }
 }

@@ -1,6 +1,7 @@
 #include "inputhandler.cpp"
 
 int main() {
-    std::string sd{ input_and_validation_general() };
-    
+    std::cout << "enter a string with number: ";
+    float sstrm{input_handler()};
+    std::cout << '\n' << sstrm << std::endl;
 }
