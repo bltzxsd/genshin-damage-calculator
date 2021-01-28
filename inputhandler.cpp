@@ -1,6 +1,8 @@
+#include "include/inputhandler.h"
 #include <iostream>
 #include <limits>
-#include <typeinfo>
+#include <string>
+#include <iterator>
 
 inline void ignore_line()
 {
@@ -21,7 +23,7 @@ int input_handler_range(int min, int max) {
     }
 }
 
-float input_handler() {
+float input_handler_int() {
     while (true) {
         float input{};
         std::cin >> input;
@@ -32,5 +34,12 @@ float input_handler() {
         } else {
             return input;
         }
+    }
+}
+
+std::string input_handler_str() {
+    while (true) {
+        std::string input;
+        std::cin >> input;
     }
 }

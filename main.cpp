@@ -1,7 +1,8 @@
-#include "inputhandler.cpp"
+#include "include/inputhandler.h"
+#include <iostream>
 
 int main() {
-    std::cout << "enter a string with number: ";
-    float sstrm{input_handler()};
-    std::cout << '\n' << sstrm << std::endl;
+
+    std::cout << "Your Ganyu level: ";
+    int ganyu_level{input_handler_range(1, 90)};
 }
