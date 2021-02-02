@@ -1,4 +1,3 @@
-#include <algorithm>
 #include "include/inputhandler.h"
 #include "weaponlist.cpp"
 
