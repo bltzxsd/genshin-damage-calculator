@@ -10,12 +10,12 @@ void ignore_line()
 int input_handler_range(int min, int max, std::string fail_out) {
     // This func gets input between 2 values (int min, int max)
     // 3rd parameter is used for outputting whats wrong the input.
-    while (true) {
+    while (true){
         int input{};
         std::cin >> input;
         if ((input < min) || (input > max)) {
             ignore_line();
-            std::cout << "Invalid Input. Please try again.\n" << std::endl;
+            std::cout << "Invalid Input. Please try again. input_handler_range() failed." << std::endl;
             std::cout << fail_out;
         } else {
             return input;
@@ -31,7 +31,7 @@ float input_handler_num() {
         std::cin >> input;
         if (input < 0 || std::cin.fail()) {
             ignore_line();
-            std::cout << "Invalid input. Please try again.\n" << std::endl;
+            std::cout << "Invalid input. Please try again. input_handler_num() failed." << std::endl;
         } else {
             return input;
         }
@@ -46,7 +46,7 @@ std::string input_handler_str() {
         std::cin >> std::noskipws >> input;
         if (std::cin.fail()) {
             ignore_line();
-            std::cout << "Invalid input. Please try again.\n" << std::endl;
+            std::cout << "Invalid input. Please try again. input_handler_str() failed." << std::endl;
         }
         return input;
     }

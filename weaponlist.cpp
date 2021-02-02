@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 #include "include/inputhandler.h"
+#include "include/weapon_level.h"
 
 std::string bows[] = {
     "Prototype Crescent",
@@ -33,7 +34,19 @@ int weapon_name() {
             }
         }
     }
-    return false;
+    std::cout << "Invalid input. Please try again. weapon_name() failed." << std::endl;
+    return 1;
+}
+
+int level_chk(int weapon_name) {
+    // this does not work for some reason
+    if (weapon_name == 99) {
+        std::string level{input_handler_str()};
+        std::cout << "Weapon level is: " << std::stoi(level);
+    } else if (weapon_name == 98) {
+        std::string level{input_handler_str()};
+        std::cout << "Weapon level is: " << std::stoi(level);
+    }
 }
 
 float substat_chk(int weapon) {
@@ -46,7 +59,7 @@ float substat_chk(int weapon) {
         std::cout << "Weapon Substat is " << passive << " percent ATK bonus." << std::endl;
         return passive;
     }
-    std::cout << "Invalid input. Please try again." << std::endl;
+    std::cout << "Invalid input. Please try again. substat_chk() failed." << std::endl;
     return 1;
 }
 
@@ -63,6 +76,6 @@ float passive_chk(float substat_chk) {
         std::cout << "\tNormal and Charged Attack DMG increases by 8 percent every 0.1 seconds for up to 5 times." << std::endl;
         return 52; // 52% ATK% boost on reg shoot boost + 5 stacks of airtime boost
     }
-    std::cout << "Invalid input. Please try again." << std::endl;
+    std::cout << "Invalid input. Please try again. passive_chk() failed." << std::endl;
     return 1;
 }

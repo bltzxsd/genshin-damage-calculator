@@ -1,3 +1,4 @@
+#include "include/weapon_level.h"
 int prototype_atkB[]{
     42, // Level 1
     56, 74, 91, 109,
