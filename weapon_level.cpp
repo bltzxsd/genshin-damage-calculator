@@ -29,6 +29,6 @@ float prototype_passive[]{
     35.9, 37.7,
     37.7, // Level 80 / 90 
     39.5,
-    41.3 // Max level 90
+    41.3 // Max level 90 
 
 };
