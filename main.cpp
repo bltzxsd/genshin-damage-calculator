@@ -12,6 +12,6 @@ int main() {
     
     // Get weapon
     int weapon{weapon_name()};
-    ignore_line();
-    substat_chk(weapon);
+    float substat{substat_chk(weapon)};
+    float passive{passive_chk(substat)};
 }

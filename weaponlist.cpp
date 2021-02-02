@@ -37,14 +37,13 @@ int weapon_name() {
 }
 
 float substat_chk(int weapon) {
-
     if (weapon == 99) {
         float passive{41.3}; // ATK% Boost of 41.3% on Prototype Crescent
-        std::cout << "\tWeapon Substat is " << passive << " percent ATK bonus." << std::endl;
+        std::cout << "Weapon Substat is " << passive << " percent ATK bonus." << std::endl;
         return passive;
     } else if (weapon == 98) {
         float passive{49.6}; // ATK% Boost of 49.6% on Amos Bow
-        std::cout << "\tWeapon Substat is " << passive << " percent ATK bonus." << std::endl;
+        std::cout << "Weapon Substat is " << passive << " percent ATK bonus." << std::endl;
         return passive;
     }
     std::cout << "Invalid input. Please try again." << std::endl;
@@ -54,7 +53,7 @@ float substat_chk(int weapon) {
 float passive_chk(float substat_chk) {
     float prototype_passive{41.3};
     if (substat_chk == prototype_passive) {
-        std::cout << " Weapon passive is:\n\tUnreturning:\n\t\t";
+        std::cout << "Your Weapon passive is:\n\tUnreturning:\n\t\t";
         std::cout << "Charged Attack hits on weak points increase Movement SPD by 10 percent and ATK by 36 percent for 10s." << std::endl;
         return 36; // 36% ATK% boost on hitting weakponts.
     }
