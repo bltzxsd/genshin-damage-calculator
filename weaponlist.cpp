@@ -1,9 +1,6 @@
-#include <string>
-#include <iostream>
-#include <array>
 #include "include/inputhandler.h"
 #include "include/weapon_level.h"
-
+#include "include/weaponlist.h"
 std::string bows[] = {
     "Prototype Crescent",
     "Amos Bow",
@@ -16,7 +13,8 @@ std::string bows[] = {
     "amos",
     "Amos",
     "amos Bow",
-    "Amow bow"};
+    "Amow bow"
+};
 
 int weapon_name() {
     // Gets weapon input from user. 
@@ -43,10 +41,11 @@ int level_chk(int weapon_name) {
     if (weapon_name == PROTOTYPE) {
         std::cout << "Your Prototype Crescent level:";
         std::string level{input_handler_str()};
-        std::cout << "Weapon level is: " << std::stoi(level);
+        std::cout << "Weapon level is: " << std::stoi(level) << std::endl;
     } else if (weapon_name == AMOS) {
+        std::cout << "Your Amos Bow level: ";
         std::string level{input_handler_str()};
-        std::cout << "Weapon level is: " << std::stoi(level);
+        std::cout << "Weapon level is: " << std::stoi(level) << std::endl;
     }
     return 1;
 }
@@ -75,7 +74,7 @@ float passive_chk(float substat_chk) {
     float amos_passive{49.6};
     if (substat_chk == amos_passive) {
         std::cout << "Your weapon passive is:\n\tStrong-Willed:\n\t\tIncreases Normal Attack and Charged Attack DMG by 12%.";
-        std::cout << "\tNormal and Charged Attack DMG increases by 8 percent every 0.1 seconds for up to 5 times." << std::endl;
+        std::cout << "\n\t\tNormal and Charged Attack DMG increases by 8 percent every 0.1 seconds for up to 5 times." << std::endl;
         return 52; // 52% ATK% boost on reg shoot boost + 5 stacks of airtime boost
     }
     std::cout << "Invalid input. Please try again. passive_chk() failed." << std::endl;
