@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <array>
 #include "include/inputhandler.h"
 #include "include/weapon_level.h"
 
@@ -25,11 +26,11 @@ int weapon_name() {
         if (weapon == bows[elements]) {
             if ((weapon[0] == 'P') || (weapon[0] == 'p')) {
                 std::cout << "Your weapon is: Prototype Crescent" << std::endl;
-                int prototype{99};
+                int prototype{PROTOTYPE};
                 return prototype;
             } else {
                 std::cout << "Your weapon is: Amos Bow" << std::endl;
-                int amos{98};
+                int amos{AMOS};
                 return amos;
             }
         }
@@ -39,22 +40,23 @@ int weapon_name() {
 }
 
 int level_chk(int weapon_name) {
-    // this does not work for some reason
-    if (weapon_name == 99) {
+    if (weapon_name == PROTOTYPE) {
+        std::cout << "Your Prototype Crescent level:";
         std::string level{input_handler_str()};
         std::cout << "Weapon level is: " << std::stoi(level);
-    } else if (weapon_name == 98) {
+    } else if (weapon_name == AMOS) {
         std::string level{input_handler_str()};
         std::cout << "Weapon level is: " << std::stoi(level);
     }
+    return 1;
 }
 
 float substat_chk(int weapon) {
-    if (weapon == 99) {
+    if (weapon == PROTOTYPE) {
         float passive{41.3}; // ATK% Boost of 41.3% on Prototype Crescent
         std::cout << "Weapon Substat is " << passive << " percent ATK bonus." << std::endl;
         return passive;
-    } else if (weapon == 98) {
+    } else if (weapon == AMOS) {
         float passive{49.6}; // ATK% Boost of 49.6% on Amos Bow
         std::cout << "Weapon Substat is " << passive << " percent ATK bonus." << std::endl;
         return passive;
