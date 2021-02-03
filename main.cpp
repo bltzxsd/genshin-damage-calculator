@@ -14,7 +14,7 @@ int main() {
     int weapon{weapon_name()};
     ignore_line();
     int weapon_level{level_chk(weapon)};
-    float substat{substat_chk(weapon)};
-    float passive{passive_chk(substat)};
+    float substat{substat_chk(weapon, weapon_level)};
+    // float passive{passive_chk(weapon)};
 
 }
