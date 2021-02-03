@@ -1,5 +1,6 @@
 #include "include/inputhandler.h"
-#include "weaponlist.cpp"
+#include "include/weaponlist.h"
+#include "include/weapon_level.h"
 
 int main() {
 
@@ -15,4 +16,5 @@ int main() {
     int weapon_level{level_chk(weapon)};
     float substat{substat_chk(weapon)};
     float passive{passive_chk(substat)};
+
 }
