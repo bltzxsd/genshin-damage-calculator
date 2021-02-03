@@ -42,10 +42,16 @@ int level_chk(int weapon_name) {
         std::cout << "Your Prototype Crescent level:";
         std::string level{input_handler_str()};
         std::cout << "Weapon level is: " << std::stoi(level) << std::endl;
-    } else if (weapon_name == AMOS) {
+        int regular_level{std::stoi(level)};
+        return regular_level;
+    }
+    else if (weapon_name == AMOS)
+    {
         std::cout << "Your Amos Bow level: ";
         std::string level{input_handler_str()};
         std::cout << "Weapon level is: " << std::stoi(level) << std::endl;
+        int regular_level{std::stoi(level)};
+        return regular_level;
     }
     return 1;
 }
