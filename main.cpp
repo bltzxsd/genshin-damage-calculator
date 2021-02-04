@@ -15,7 +15,7 @@ int main() {
     ignore_line();
     int weapon_level{level_chk(weapon)};
     if (weapon_level == 1) {
-        std::cout << "Invalid input. Please try again.";
+        exit(1);
     } else {
         float substat{substat_chk(weapon, weapon_level)};
     }
