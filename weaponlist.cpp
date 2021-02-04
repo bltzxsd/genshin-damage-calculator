@@ -58,6 +58,10 @@ int level_chk(int weapon_name) {
         if (level_num % 5 != 0) {
             std::cout << "Invalid input. Levels are only accepted in increments of 5\n";
             return 1;
+        } else if (level_num == 1) {
+            std::cout << "Weapon level is: " << std::stoi(level) << std::endl;
+            int regular_level{(std::stoi(level) / 5) + 1};
+            return regular_level;
         }
         std::cout << "Weapon level is: " << std::stoi(level) << std::endl;
         int regular_level{(std::stoi(level) / 5) + 1};
