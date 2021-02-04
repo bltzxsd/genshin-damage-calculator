@@ -23,4 +23,4 @@ clean:
 	rm -f *.o 
 
 cleanall:
-	rm -f a.out *.o linux_exec program.exe
+	rm -f a.out *.o 
