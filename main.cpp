@@ -17,7 +17,7 @@ int main() {
     if (weapon_level == 1) {
         exit(1);
     } else {
-        float substat{substat_chk(weapon, weapon_level)};
+        substat_chk(weapon, weapon_level);
     }
     
     // float passive{passive_chk(weapon)};
