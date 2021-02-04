@@ -14,7 +14,11 @@ int main() {
     int weapon{weapon_name()};
     ignore_line();
     int weapon_level{level_chk(weapon)};
-    float substat{substat_chk(weapon, weapon_level)};
+    if (weapon_level == 1) {
+        std::cout << "Invalid input. Please try again.";
+    } else {
+        float substat{substat_chk(weapon, weapon_level)};
+    }
+    
     // float passive{passive_chk(weapon)};
-
 }
