@@ -2,7 +2,7 @@ CC:= g++
 CCFLAGS:= -std=c++17 -Wall -O2 -Ofast
 COMPILEFLAG:= -c
 LINKFLAG:= -o
-INCLUDE:= genshin_damage_calculator/include
+INCLUDE:= ${CURDIR}/include
 
 a.out: main.o inputhandler.o weaponlist.o weapon_level.o
 	$(CC) $(CCFLAGS) main.o inputhandler.o weaponlist.o weapon_level.o $(LINKFLAG) a.out
