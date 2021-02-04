@@ -1,26 +1,31 @@
-CC:= g++
-CCFLAGS:= -std=c++17 -Wall -O2 -Ofast
+CC:= clang++
+CXXFLAGS:= -std=c++17 -Wall -O2 -Ofast
 COMPILEFLAG:= -c
-LINKFLAG:= -o
+LDFLAGS:= -o
 INCLUDE:= ${CURDIR}/include
+OUTPUT:=.out
 
-a.out: main.o inputhandler.o weaponlist.o weapon_level.o
-	$(CC) $(CCFLAGS) main.o inputhandler.o weaponlist.o weapon_level.o $(LINKFLAG) a.out
+output: main.o inputhandler.o weaponlist.o weapon_level.o
+	$(CC) $(CXXFLAGS) main.o inputhandler.o weaponlist.o weapon_level.o $(LDFLAGS) program$(OUTPUT)
 
 main.o: main.cpp  
-	$(CC) $(CCFLAGS) $(COMPILEFLAG) main.cpp
+	$(CC) $(CXXFLAGS) $(COMPILEFLAG) main.cpp
 
 inputhandler.o: inputhandler.cpp $(INCLUDE)/inputhandler.h
-	$(CC) $(CCFLAGS) $(COMPILEFLAG) inputhandler.cpp
+	$(CC) $(CXXFLAGS) $(COMPILEFLAG) inputhandler.cpp
 
 weaponlist.o: weaponlist.cpp $(INCLUDE)/inputhandler.h $(INCLUDE)/weapon_level.h $(INCLUDE)/weaponlist.h
-	$(CC) $(CCFLAGS) $(COMPILEFLAG) weaponlist.cpp
+	$(CC) $(CXXFLAGS) $(COMPILEFLAG) weaponlist.cpp
 
 weapon_level.o: weapon_level.cpp $(INCLUDE)/weapon_level.h
-	$(CC) $(CCFLAGS) $(COMPILEFLAG) weapon_level.cpp
+	$(CC) $(CXXFLAGS) $(COMPILEFLAG) weapon_level.cpp
 
+winoutput: main.o inputhandler.o weaponlist.o weapon_level.o
+	$(CC) $(CXXFLAGS) main.o inputhandler.o weaponlist.o weapon_level.o $(LDFLAGS) program.exe
+
+.PHONY: clean cleanall
 clean: 
 	rm -f *.o 
 
 cleanall:
-	rm -f a.out *.o 
+	rm -f program$(OUTPUT) *.o 
