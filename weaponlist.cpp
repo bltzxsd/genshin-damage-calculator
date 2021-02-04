@@ -81,13 +81,11 @@ float substat_chk(int weapon, int level) {
 }
 
 float passive_chk(int weapon_name) {
-    float prototype_passive{41.3};
     if (weapon_name == PROTOTYPE) {
         std::cout << "Your Weapon passive is:\n\tUnreturning:\n\t\t";
         std::cout << "Charged Attack hits on weak points increase Movement SPD by 10 percent and ATK by 36 percent for 10s." << std::endl;
         return 36; // 36% ATK% boost on hitting weakponts.
     }
-    float amos_passive{49.6};
     if (weapon_name == AMOS) {
         std::cout << "Your weapon passive is:\n\tStrong-Willed:\n\t\tIncreases Normal Attack and Charged Attack DMG by 12%.";
         std::cout << "\n\t\tNormal and Charged Attack DMG increases by 8 percent every 0.1 seconds for up to 5 times." << std::endl;
