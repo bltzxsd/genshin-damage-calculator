@@ -47,8 +47,8 @@ std::string level_chk(int weapon_name) {
             std::cout << "Value does not exist. Please try again\n";
             exit(1);
         } else {
-            std::cout << "Base Damage of your Prototype Crescent is: " << get->second.base_damage;
-            std::cout << "Substat ATK boost of your Prototype Crescent is: " << get->second.substat;
+            std::cout << "Base Damage of your Prototype Crescent is: " << get->second.base_damage << '\n';
+            std::cout << "Substat ATK boost of your Prototype Crescent is: " << get->second.substat << "%\n";
             return input;
         }
     } else if (weapon_name == AMOS) {
@@ -59,8 +59,8 @@ std::string level_chk(int weapon_name) {
             std::cout << "Value does not exist. Please try again\n";
             exit(1);
         } else {
-            std::cout << "Base Damage of your Amos Bow is: " << get->second.base_damage;
-            std::cout << "Substat ATK boost of your Amos Bow is: " << get->second.substat;
+            std::cout << "Base Damage of your Amos Bow is: " << get->second.base_damage << '\n';
+            std::cout << "Substat ATK boost of your Amos Bow is: " << get->second.substat << "%\n";
             return input;
         }
 
