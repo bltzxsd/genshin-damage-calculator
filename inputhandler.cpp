@@ -38,10 +38,9 @@ float input_handler_num() {
     }
 }
 
-std::string input_handler_str() {
+std::string string_input() {
     while (true) {
-        // Handles std::string input. 
-        // Needs a while loop to check for correct input. 
+        // Handles std::string input.
         std::string input;
         std::cin >> std::noskipws >> input;
         if (std::cin.fail()) {
