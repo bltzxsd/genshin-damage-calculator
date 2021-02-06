@@ -1,5 +1,5 @@
 #include "include/inputhandler.h"
-#include "include/weaponlist.h"
+#include "include/weapon_stats.h"
 #include "include/weapon_level.h"
 
 int main() {
@@ -13,8 +13,9 @@ int main() {
     // Get weapon
     int weaponName{weapon_name()};
     ignore_line();
+    std::string name_weapon{(weaponName == AMOS) ? "Amos Bow" : "Prototype Crescent"};
+    std::cout << "Enter the level of your " << name_weapon << ": ";
     std::string weapon_level{level_chk(weaponName)};
-    ignore_line();
+    std::cout << substat_chk(weaponName, weapon_level);
 
-    // float passive{passive_chk(weapon)};
 }
