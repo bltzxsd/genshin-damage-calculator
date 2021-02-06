@@ -6,7 +6,7 @@
 
 extern std::string bows[];
 int weapon_name();
-int level_chk(int);
-float substat_chk(int, int);
-float passive_chk(float);
+std::string level_chk(int);
+//float substat_chk(int, int);
+//float passive_chk(float);
 #endif

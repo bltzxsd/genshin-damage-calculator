@@ -38,39 +38,37 @@ int weapon_name() {
     return 1;
 }
 
-int level_chk(int weapon_name) {
+std::string level_chk(int weapon_name) {
     if (weapon_name == PROTOTYPE) {
-        std::cout << "Your Prototype Crescent level: ";
-        std::string level{input_handler_str()};
-        int level_num{std::stoi(level)};
-        if (level_num % 5 != 0) {
-            std::cout << "Invalid input. Levels are only accepted in increments of 5\n";
-            return 1;
+        std::string input {input_handler_str()};
+        auto get = PrototypeCrescent.find(input);
+        // Check if the thing is in the map.
+        if (get == PrototypeCrescent.end()) {
+            std::cout << "Value does not exist. Please try again\n";
+            exit(1);
+        } else {
+            std::cout << "Base Damage of your Prototype Crescent is: " << get->second.base_damage;
+            std::cout << "Substat ATK boost of your Prototype Crescent is: " << get->second.substat;
+            return input;
         }
-        std::cout << "Weapon level is: " << std::stoi(level) << std::endl;
-        int regular_level{(std::stoi(level) / 5) + 1};
-        return regular_level;
-    }
-    else if (weapon_name == AMOS) {
-        std::cout << "Your Amos Bow level: ";
-        std::string level{input_handler_str()};
-        int level_num{std::stoi(level)};
-        if (level_num % 5 != 0) {
-            std::cout << "Invalid input. Levels are only accepted in increments of 5\n";
-            return 1;
-        } else if (level_num == 1) {
-            std::cout << "Weapon level is: " << std::stoi(level) << std::endl;
-            int regular_level{(std::stoi(level) / 5) + 1};
-            return regular_level;
+    } else if (weapon_name == AMOS) {
+        std::string input {input_handler_str()};
+        auto get = AmosBow.find(input);
+        // Check if the thing is in the map.
+        if (get == AmosBow.end()) {
+            std::cout << "Value does not exist. Please try again\n";
+            exit(1);
+        } else {
+            std::cout << "Base Damage of your Amos Bow is: " << get->second.base_damage;
+            std::cout << "Substat ATK boost of your Amos Bow is: " << get->second.substat;
+            return input;
         }
-        std::cout << "Weapon level is: " << std::stoi(level) << std::endl;
-        int regular_level{(std::stoi(level) / 5) + 1};
-        return regular_level;
+
     }
-    return 1;
+    return "1";
 }
 
-float substat_chk(int weapon, int level) {
+/* float substat_chk(int weapon, int level) {
     if (weapon == PROTOTYPE) {
         float substat{prototype_substat[level]};
         std::cout << "Weapon substat is: " << substat << "% ATK" << '\n';
@@ -97,4 +95,4 @@ float passive_chk(int weapon_name) {
     }
     std::cout << "Invalid input. Please try again. passive_chk() failed." << std::endl;
     return 1;
-}
+} */
