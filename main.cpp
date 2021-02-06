@@ -11,14 +11,10 @@ int main() {
     ignore_line();
     
     // Get weapon
-    int weapon{weapon_name()};
+    int weaponName{weapon_name()};
     ignore_line();
-    int weapon_level{level_chk(weapon)};
-    if (weapon_level == 1) {
-        exit(1);
-    } else {
-        substat_chk(weapon, weapon_level);
-    }
-    
+    std::string weapon_level{level_chk(weaponName)};
+    ignore_line();
+
     // float passive{passive_chk(weapon)};
 }
