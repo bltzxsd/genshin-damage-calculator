@@ -6,8 +6,8 @@ INCLUDE:= ${CURDIR}/include
 OBJDIR:= ${CURDIR}/obj
 OUTPUT:=.out
 
-all: main.o inputhandler.o weaponlist.o 
-	$(CC) $(CXXFLAGS) main.o inputhandler.o weaponlist.o $(LDFLAGS) program$(OUTPUT)
+all: main.o inputhandler.o weapon_stats.o 
+	$(CC) $(CXXFLAGS) main.o inputhandler.o weapon_stats.o $(LDFLAGS) a$(OUTPUT)
 
 main.o: main.cpp  
 	$(CC) $(CXXFLAGS) $(COMPILEFLAG) main.cpp
@@ -15,12 +15,12 @@ main.o: main.cpp
 inputhandler.o: inputhandler.cpp $(INCLUDE)/inputhandler.h
 	$(CC) $(CXXFLAGS) $(COMPILEFLAG) inputhandler.cpp
 
-weaponlist.o: weaponlist.cpp $(INCLUDE)/inputhandler.h $(INCLUDE)/weapon_level.h $(INCLUDE)/weaponlist.h
-	$(CC) $(CXXFLAGS) $(COMPILEFLAG) weaponlist.cpp
+weapon_stats.o: weapon_stats.cpp $(INCLUDE)/inputhandler.h $(INCLUDE)/weapon_level.h $(INCLUDE)/weapon_stats.h
+	$(CC) $(CXXFLAGS) $(COMPILEFLAG) weapon_stats.cpp
 
 .PHONY: clean cleanall
 clean: 
 	rm -f *.o 
 
 cleanall:
-	rm -f program$(OUTPUT) *.o  dmg_calculator.exe
+	rm -f a$(OUTPUT) *.o  dmg_calculator.exe
