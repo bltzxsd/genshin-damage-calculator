@@ -30,8 +30,9 @@ const std::unordered_map<std::string, Weapon> AmosBow = {
     {"70A", {488, 40.9}},
     {"75",  {510, 43.1}},
     {"80",  {532, 45.3}},
-    {"80A", {563, 47.7}},
-    {"85",  {586, 49.6}}
+    {"80A", {563, 45.3}},
+    {"85",  {586, 49.4}},
+    {"90",  {608, 49.6}}
 };
 
 const std::unordered_map<std::string, Weapon> PrototypeCrescent = {
@@ -57,10 +58,8 @@ const std::unordered_map<std::string, Weapon> PrototypeCrescent = {
     {"70A", {414, 34.1}},
     {"75",  {431, 35.9}},
     {"80",  {475, 37.7}},
-    {"80A", {492, 39.5}},
-    {"85",  {510, 41.3}}
+    {"80A", {492, 37.7}},
+    {"85",  {510, 39.5}},
+    {"90",  {510, 41.3}}
 };
-// extern float prototype_substat[];
-// extern int amos_atkB[];
-// extern float amos_substat[];
 #endif  
