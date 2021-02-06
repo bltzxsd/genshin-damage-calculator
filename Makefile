@@ -3,9 +3,10 @@ CXXFLAGS:= -std=c++17 -Wall -O2 -Ofast
 COMPILEFLAG:= -c
 LDFLAGS:= -o
 INCLUDE:= ${CURDIR}/include
+OBJDIR:= ${CURDIR}/obj
 OUTPUT:=.out
 
-output: main.o inputhandler.o weaponlist.o 
+all: main.o inputhandler.o weaponlist.o 
 	$(CC) $(CXXFLAGS) main.o inputhandler.o weaponlist.o $(LDFLAGS) program$(OUTPUT)
 
 main.o: main.cpp  
@@ -16,9 +17,6 @@ inputhandler.o: inputhandler.cpp $(INCLUDE)/inputhandler.h
 
 weaponlist.o: weaponlist.cpp $(INCLUDE)/inputhandler.h $(INCLUDE)/weapon_level.h $(INCLUDE)/weaponlist.h
 	$(CC) $(CXXFLAGS) $(COMPILEFLAG) weaponlist.cpp
-
-winoutput: main.o inputhandler.o weaponlist.o weapon_level.o
-	$(CC) $(CXXFLAGS) main.o inputhandler.o weaponlist.o weapon_level.o $(LDFLAGS) program.exe
 
 .PHONY: clean cleanall
 clean: 
