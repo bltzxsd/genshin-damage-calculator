@@ -39,6 +39,8 @@ int weapon_name() {
 }
 
 std::string level_chk(int weapon_name) {
+    // There is no viable way I have found to calculate the substat and base damage from level.
+    // Mihoyo has forced my hand to create this mess. Too bad! 
     if (weapon_name == PROTOTYPE) {
         std::string input {input_handler_str()};
         auto get = PrototypeCrescent.find(input);
