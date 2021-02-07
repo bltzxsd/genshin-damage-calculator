@@ -77,7 +77,7 @@ float passive_chk(int weapon_name) {
     if (weapon_name == AMOS) {
         std::cout << "Your weapon passive is:\n\tStrong-Willed:\n\t\tIncreases Normal Attack and Charged Attack DMG by 12%.";
         std::cout << "\n\t\tNormal and Charged Attack DMG increases by 8 percent every 0.1 seconds for up to 5 times." << std::endl;
-        return AMOS_PASSIVE_BOOST; // 52% ATK% ; 12% boost on reg shoot boost + 5 stacks of airtime boost
+        return AMOS_PASSIVE_BOOST; // 52% dmg boost% + 12% boost on reg shoot boost + 5 stacks of airtime boost
     }
     std::cerr << "passive_chk() failed.\n";
     return 1;
