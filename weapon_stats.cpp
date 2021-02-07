@@ -44,7 +44,7 @@ std::string level_chk(int weapon_name) {
     if (weapon_name == PROTOTYPE) {
         std::string input {input_string()};
         auto get = PrototypeCrescent.find(input);
-        // Check if the thing is in the map.
+        // Check if the value provided by input is in the map.
         if (get == PrototypeCrescent.end()) {
             std::cout << "Value does not exist. Please try again\n";
             return NULL;
@@ -55,7 +55,7 @@ std::string level_chk(int weapon_name) {
     } else if (weapon_name == AMOS) {
         std::string input {input_string()};
         auto get = AmosBow.find(input);
-        // Check if the thing is in the map.
+        // Check if the value provided by input is in the map.
         if (get == AmosBow.end()) {
             std::cout << "Value does not exist. Please try again\n";
             return NULL;
@@ -77,7 +77,7 @@ float passive_chk(int weapon_name) {
     if (weapon_name == AMOS) {
         std::cout << "Your weapon passive is:\n\tStrong-Willed:\n\t\tIncreases Normal Attack and Charged Attack DMG by 12%.";
         std::cout << "\n\t\tNormal and Charged Attack DMG increases by 8 percent every 0.1 seconds for up to 5 times." << std::endl;
-        return 52; // 52% ATK% boost on reg shoot boost + 5 stacks of airtime boost
+        return 52; // 52% ATK% ; 12% boost on reg shoot boost + 5 stacks of airtime boost
     }
     std::cerr << "passive_chk() failed.\n";
     return 1;
