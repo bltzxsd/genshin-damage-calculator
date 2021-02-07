@@ -20,5 +20,8 @@ int main()
     std::string weapon_level{level_chk(weaponName)};
     float weapon_substat{substat_chk(weaponName, weapon_level)};
     passive_chk(weaponName);
+    ignore_line();
+
+    // Get Flat ATK from artifact
     flat_atk_get();
 }
