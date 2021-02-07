@@ -71,7 +71,7 @@ std::string level_chk(int weapon_name) {
 float passive_chk(int weapon_name) {
     if (weapon_name == PROTOTYPE) {
         std::cout << "Your Weapon passive is:\n\tUnreturning:\n\t\t";
-        std::cout << "Charged Attack hits on weak points increase Movement SPD by 10 percent and ATK by 36 percent for 10s." << std::endl;
+        std::cout << "Charged Attack hits on weak points increase Movement SPD by 10% and ATK by 36% for 10s." << std::endl;
         return CRESCENT_PASSIVE_BOOST; // 36% ATK% boost on hitting weakponts.
                                        // Expected to changed after implementing refines
     }
@@ -93,6 +93,7 @@ float substat_chk(int weapon_name, std::string weapon_level) {
     }
     if (weapon_name == AMOS) {
         auto get = AmosBow.find(weapon_level);
+        std::cout << "Substat ATK% boost of your Amos Bow is: " << get->second.substat << "%\n";
         return get->second.substat;
     }
     return 1;
