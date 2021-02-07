@@ -7,5 +7,5 @@
 void ignore_line();
 int input_handler_range(int, int, std::string);
 float input_handler_int();
-std::string input_string();
+std::string string_input();
 #endif

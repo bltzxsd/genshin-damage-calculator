@@ -7,7 +7,7 @@ void ignore_line()
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-int input_handler_range(int min, int max, std::string fail_out) {
+int input_handler_range(int min, int max, std::string_view fail_out) {
     // This func gets input between 2 values (int min, int max)
     // 3rd parameter is used for outputting whats wrong the input.
     while (true){

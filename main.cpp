@@ -17,5 +17,5 @@ int main() {
     std::cout << "Enter the level of your " << name_weapon << ": ";
     std::string weapon_level{level_chk(weaponName)};
     std::cout << substat_chk(weaponName, weapon_level);
-
+    passive_chk(weaponName);
 }
