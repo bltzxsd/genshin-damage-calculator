@@ -1,25 +1,9 @@
 #include "include/inputhandler.h"
 #include <iostream>
 
-void ignore_line()
-{
+void ignore_line() {
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-}
-
-int input_handler_range(int min, int max) {
-    // This func gets input between 2 values (int min, int max)
-    // 3rd parameter is used for outputting whats wrong the input.
-    while (true){
-        int input{};
-        std::cin >> input;
-        if ((input < min) || (input > max)) {
-            ignore_line();
-            std::cout << "Invalid Input. Please try again. input_handler_range() failed." << std::endl;
-        } else {
-            return input;
-        }
-    }
 }
 
 float input_handler_num() {

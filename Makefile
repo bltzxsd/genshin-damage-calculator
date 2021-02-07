@@ -7,7 +7,7 @@ OBJDIR:= ${CURDIR}/obj
 OUTPUT:=.out
 
 all: main.o inputhandler.o weapon_stats.o 
-	$(CC) $(CXXFLAGS) main.o inputhandler.o weapon_stats.o $(LDFLAGS) a$(OUTPUT)
+	$(CC) $(CXXFLAGS) main.o inputhandler.o weapon_stats.o artifact_value.o $(LDFLAGS) a$(OUTPUT)
 
 main.o: main.cpp  
 	$(CC) $(CXXFLAGS) $(COMPILEFLAG) main.cpp
@@ -15,7 +15,10 @@ main.o: main.cpp
 inputhandler.o: inputhandler.cpp $(INCLUDE)/inputhandler.h
 	$(CC) $(CXXFLAGS) $(COMPILEFLAG) inputhandler.cpp
 
-weapon_stats.o: weapon_stats.cpp $(INCLUDE)/inputhandler.h $(INCLUDE)/weapon_level.h $(INCLUDE)/weapon_stats.h
+artifact_value.o: artifact_value.cpp $(INCLUDE)/artifact_value.h
+	$(CC) $(CXXFLAGS) $(COMPILEFLAG) artifact_value.cpp
+
+weapon_stats.o: weapon_stats.cpp $(INCLUDE)/weapon_level.h $(INCLUDE)/weapon_stats.h
 	$(CC) $(CXXFLAGS) $(COMPILEFLAG) weapon_stats.cpp
 
 .PHONY: clean cleanall
