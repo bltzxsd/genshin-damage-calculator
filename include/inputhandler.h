@@ -15,7 +15,8 @@ float input_handler_range(T min, T max) {
             ignore_line();
             std::cout << "Invalid Input. Please try again. input_handler_range() failed.";
             std::cout << "This only accepts values within the range of " << min << " and " << max << '.';
-            std::cout << "Please try again: ";
+            std::cout << "\nPlease try again: ";
+            continue;
         } else {
             return input;
         }
