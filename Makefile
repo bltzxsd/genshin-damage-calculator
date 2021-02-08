@@ -1,12 +1,12 @@
 CC:= clang++
-CXXFLAGS:= -std=c++17 -Wall -O2 -Ofast -g
+CXXFLAGS:= -std=c++17 -Wall -ggdb -g3
 LDFLAGS:= -o
 INCLUDE:= ${CURDIR}/include
 OBJDIR:= ${CURDIR}/objs
 OUTPUT:=.out
 
-all: main.o inputhandler.o weapon_stats.o artifact_value.o artifact_set.o
-	$(CC) $(CXXFLAGS) main.o inputhandler.o weapon_stats.o artifact_value.o artifact_set.o $(LDFLAGS) a$(OUTPUT)
+all: main.o inputhandler.o weapon_stats.o artifact_value.o artifact_set.o ganyu_level.o
+	$(CC) $(CXXFLAGS) main.o inputhandler.o weapon_stats.o artifact_value.o artifact_set.o ganyu_level.o $(LDFLAGS) a$(OUTPUT)
 
 main.o: main.cpp 
 	$(CC) $(CXXFLAGS) -c main.cpp
@@ -22,6 +22,9 @@ artifact_value.o: artifact_value.cpp $(INCLUDE)/artifact_value.h $(INCLUDE)/inpu
 
 artifact_set.o: artifact_set.cpp $(INCLUDE)/artifact_set.h $(INCLUDE)/inputhandler.h
 	$(CC) $(CXXFLAGS) -c artifact_set.cpp 
+
+ganyu_level.o: ganyu_level.cpp $(INCLUDE)/ganyu_level.h $(INCLUDE)/inputhandler.h 
+	$(CC) $(CXXFLAGS) -c ganyu_level.cpp
 
 .PHONY: clean cleanall
 clean: 
