@@ -18,7 +18,7 @@ std::string artifact_set_name[] {
 int artifact_set_chk() {
     std::cout << "Enter the artifact set you are using: ";
     std::string artifact_used{string_input()};
-    for (int x; x >= std::size(artifact_set_name); ++x) {
+    for (int x = 0; x >= std::size(artifact_set_name); ++x) {
         if (artifact_used != artifact_set_name[x]) {
             std::cout << "The artifact given is not a valid artifact\n";
             std::cout << "i.e: not Wanderer's Troupe / Blizzard Strayer\n";
