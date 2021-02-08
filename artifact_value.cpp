@@ -11,21 +11,21 @@ void flat_atk_get() {
                 float circlet{input_handler_range(0, MAX_FLAT_ATK)};
                 flat_atk[0] = circlet;
                 ignore_line();
-                break;
+            break;
             }
             case 2: {
                 std::cout << "Enter the total FLAT ATK on your Goblet of Eonothem (substat): ";
                 float goblet{input_handler_range(0, MAX_FLAT_ATK)};
                 flat_atk[1] = goblet;
                 ignore_line();
-                break;
+            break;
             }
             case 3: {
                 std::cout << "Enter the total FLAT ATK on your Sands of Eon (substat): ";
                 float cup{input_handler_range(0, MAX_FLAT_ATK)};
                 flat_atk[2] = cup;
                 ignore_line();
-                break;
+            break;
             }
             case 4: {
                 std::cout << "Enter the total FLAT ATK on your Flower of Life (substat): ";
@@ -39,15 +39,10 @@ void flat_atk_get() {
                 float feather{input_handler_range(0, FEATHER_FLAT_MAX_ATK)};
                 flat_atk[4] = feather;
                 ignore_line();
-                break;
+            break;
             }
             default: { break; }
         }
-    }
-    std::cout << '\n';
-    for (auto& x : flat_atk)
-    {
-        std::cout << x << ' ';
     }
     std::cout << '\n';
 }
@@ -93,8 +88,5 @@ void atk_perc_get() {
             default: { break; }
         }
     }
-    for (auto &x : atk_percent) {
-        std::cout << x << ' ';
-    }
-    std::cout << std::endl;
+    std::cout << '\n';
 }
