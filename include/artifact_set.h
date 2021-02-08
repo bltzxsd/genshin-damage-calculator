@@ -5,7 +5,7 @@
 #define BLIZZARD 22
 
 #include "inputhandler.h"
-#include <string>
+
 
 extern std::string artifact_set_name[];
 int artifact_set_chk();
