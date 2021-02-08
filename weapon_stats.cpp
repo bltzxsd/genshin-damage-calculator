@@ -2,7 +2,7 @@
 #include "include/weapon_level.h"
 #include "include/weapon_stats.h"
 
-std::string bows[] {
+std::string bows[12] {
     "Prototype Crescent",
     "Amos Bow",
     "prototype crescent",
@@ -21,7 +21,7 @@ int weapon_name() {
     // Gets weapon input from user. 
     std::cout << "Enter the weapon you have equipped: ";
     std::string weapon{string_input()};
-    for (int elements{0}; elements <= (int) std::size(bows); ++elements) {
+    for (int elements{0}; elements <= std::size(bows); ++elements) {
         if (weapon == bows[elements]) {
             if ((weapon[0] == 'P') || (weapon[0] == 'p')) {
                 std::cout << "Your weapon is: Prototype Crescent" << std::endl;
