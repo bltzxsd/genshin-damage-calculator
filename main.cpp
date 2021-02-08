@@ -24,4 +24,6 @@ int main()
 
     // Get Flat ATK from artifact
     flat_atk_get();
+    // Get ATK% from artifact
+    atk_perc_get();
 }
