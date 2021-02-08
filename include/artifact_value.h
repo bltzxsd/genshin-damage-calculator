@@ -8,8 +8,8 @@
 #define MAX_MAINS_ATKP 46.6
 #define FEATHER_FLAT_MAX_ATK 311
 
-extern float floatflat_atk[];
-extern float atk_percent[];
+extern int flat_atk[5];
+extern float atk_percent[5];
 void flat_atk_get();
 void atk_perc_get();
 #endif
