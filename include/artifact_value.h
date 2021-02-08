@@ -1,10 +1,12 @@
-#ifndef ARTIFACT_SET
-#define ARTIFACT_SET
+#ifndef ARTIFACT_VALUE
+#define ARTIFACT_VALUE
 
 #include "inputhandler.h"
 
 #define MAX_FLAT_ATK 95
-#define MAX_PERCNT_ATK 29
+#define MAX_SUB_ATKP 29.0
+#define MAX_MAINS_ATKP 46.6
+#define FEATHER_FLAT_MAX_ATK 311
 
 extern float floatflat_atk[];
 extern float atk_percent[];
