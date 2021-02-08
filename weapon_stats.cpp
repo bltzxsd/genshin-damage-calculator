@@ -88,7 +88,7 @@ float passive_chk(int weapon_name) {
 float substat_chk(int weapon_name, std::string weapon_level) {
     if (weapon_name == PROTOTYPE) {
         auto get = PrototypeCrescent.find(weapon_level);
-        std::cout << "Substat ATK% boost of your Amos Bow is: " << get->second.substat << "%\n";
+        std::cout << "Substat ATK% boost of your Prototype Crescent is: " << get->second.substat << "%\n";
         return get->second.substat;
     }
     if (weapon_name == AMOS) {
