@@ -71,13 +71,13 @@ std::string level_chk(int weapon_name) {
 float passive_chk(int weapon_name) {
     if (weapon_name == PROTOTYPE) {
         std::cout << "Your Weapon passive is:\n\tUnreturning:\n\t\t";
-        std::cout << "Charged Attack hits on weak points increase Movement SPD by 10% and ATK by 36% for 10s." << std::endl;
+        std::cout << "Charged Attack hits on weak points increase Movement SPD by 10% and ATK by 36% for 10s.\n";
         return CRESCENT_PASSIVE_BOOST; // 36% ATK% boost on hitting weakponts.
                                        // Expected to changed after implementing refines
     }
     if (weapon_name == AMOS) {
         std::cout << "Your weapon passive is:\n\tStrong-Willed:\n\t\tIncreases Normal Attack and Charged Attack DMG by 12%.";
-        std::cout << "\n\t\tNormal and Charged Attack DMG increases by 8 percent every 0.1 seconds for up to 5 times." << std::endl;
+        std::cout << "\n\t\tNormal and Charged Attack DMG increases by 8 percent every 0.1 seconds for up to 5 times.\n";
         return AMOS_PASSIVE_BOOST; //  + 12% DMG boost on reg shoot boost + 5 stacks of airtime boost of 8% == 52 % dmg bonus
                                    // Expected to changed after implementing refines
     }
@@ -97,4 +97,15 @@ float substat_chk(int weapon_name, std::string weapon_level) {
         return get->second.substat;
     }
     return 1;
+}
+
+int base_dmg_weapon(std::string weapon_level, int weapon_name) {
+    if (weapon_name == PROTOTYPE) {
+        auto get = PrototypeCrescent.find(weapon_level);
+        return get->second.base_damage;
+    }
+    if (weapon_name == AMOS) {
+        auto get = AmosBow.find(weapon_level);
+        return get->second.base_damage;
+    }
 }
