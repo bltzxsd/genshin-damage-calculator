@@ -12,4 +12,5 @@ int weapon_name();
 std::string level_chk(int);
 float substat_chk(int, std::string);
 float passive_chk(int);
+int base_dmg_weapon(std::string, int);
 #endif
