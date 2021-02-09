@@ -6,7 +6,7 @@
 
 void ignore_line();
 template<typename T>
-float input_handler_range(T min, T max) {
+T input_handler_range(T min, T max) {
     // This func gets input between 2 values (T min, T max)
     while (true) {
         T input{};
