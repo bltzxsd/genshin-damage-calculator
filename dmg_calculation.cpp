@@ -11,19 +11,22 @@
 
 #include "include/dmg_calculation.h"
 
-int crit_dmg(int damage, float cdmgPercentage) {
-    return damage * (1 + cdmgPercentage);
+int dmgCalc::crit_dmg(int damage, float cdmgPercentage) {
+    return damage * (1 + (cdmgPercentage / 100));
 }
-int em_perc_bonus(int elemental_mastery) {
+int dmgCalc::em_perc_bonus(int elemental_mastery) {
     return 2.78 * ((elemental_mastery) / (elemental_mastery + 1400));
 }
-int basic_atk(int baseATK, float atk_percentage, int flat_atk) {    
-    return baseATK * (1 + atk_percentage) + flat_atk;
+int dmgCalc::basic_atk(int baseATK, float atk_percentage, int flat_atk) {   
+    float total_character_atk = 0; 
+    float temp_perc = 1 + (atk_percentage / 100); 
+    total_character_atk = (baseATK * temp_perc) + flat_atk;
+    return static_cast<int>(total_character_atk); 
 }
-int outgoing_dmg(int atk, int talent_percent, int damage_bonus) {
-    return atk * talent_percent * (1 + damage_bonus);
+int dmgCalc::outgoing_dmg(int atk, int talent_percent, int damage_bonus) {
+    return (atk * (talent_percent / 100)) * (1 + (damage_bonus / 100));
 }
-int amping_dmg(int dmg, float embonus_perc, int dmg_bonus) {
+int dmgCalc::amping_dmg(int dmg, float embonus_perc, int dmg_bonus) {
     const float reaction_multiplier{1.5};
     float final_dmg{(dmg * reaction_multiplier) 
                     * (1 + embonus_perc + 0 /*reaction bonus*/ )
