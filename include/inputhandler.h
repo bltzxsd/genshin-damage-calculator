@@ -22,6 +22,6 @@ T input_handler_range(T min, T max) {
         }
     }
 }
-float input_handler_int();
+float input_handler_num();
 std::string string_input();
 #endif
