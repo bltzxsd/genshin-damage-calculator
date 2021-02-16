@@ -33,7 +33,7 @@ dmg_calculation.o: dmg_calculation.cpp $(INCLUDE)/dmg_calculation.h $(INCLUDE)/i
 
 .PHONY: clean cleanall
 clean: 
-	rm -f *.o 
+	rm -f *.o *.obj
 
 cleanall:
-	rm -f a$(OUTPUT) *.o  dmg_calculator.exe
+	rm -f a$(OUTPUT) *.o *.obj *.exe
