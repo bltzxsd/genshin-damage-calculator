@@ -17,14 +17,16 @@ int main() {
     float ganyu_cmdg_val = ganyu_cdmg(ganyu_lvl);
     ignore_line();
     std::cout << "Enter the total Crit Damage% on your character: ";
-    ganyu_cmdg_val = input_handler_num(); 
+    float temp_cmdg_var{input_handler_num()};
+    float end_ganyu_cmdg_val = {(temp_cmdg_var == 0) ? ganyu_cmdg_val : temp_cmdg_var};
+    std::cout << "Crit DMG % on your character: " << end_ganyu_cmdg_val;
     std::cout << "\n\n";
     ignore_line();
 
     // Get weapon
-    auto weaponName{weapon_name()};
+    int weaponName{weapon_name()};
     ignore_line();
-    std::string name_weapon{(weaponName == AMOS) ? "Amos Bow" : "Prototype Crescent"};
+    std::string name_weapon{(weaponName == amos) ? "Amos Bow" : "Prototype Crescent"};
     std::cout << "Enter the level of your " << name_weapon << ": ";
     std::string weapon_level{level_chk(weaponName)};
     float weapon_substat{substat_chk(weaponName, weapon_level)};
@@ -83,11 +85,11 @@ int main() {
 
     ignore_line();
     // checks if amos passive dmg bonus is applied
-    if (dmgbonus_p == AMOS_PASSIVE_BOOST) {
-        dmgbonus_p = AMOS_PASSIVE_BOOST;
-    } else if (dmgbonus_p == CRESCENT_PASSIVE_BOOST) {
+    if (dmgbonus_p == amos_passive_boost) {
+        dmgbonus_p = amos_passive_boost;
+    } else if (dmgbonus_p == crescent_passive_boost) {
         // if crescent: atk bonus up 34
-        total_perc_atk += CRESCENT_PASSIVE_BOOST;
+        total_perc_atk += crescent_passive_boost;
     }
     // check (elemental) dmg bonus
     if (artifact_set_used == 35/*wanderer boost*/) {
