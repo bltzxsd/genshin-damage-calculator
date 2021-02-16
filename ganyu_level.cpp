@@ -4,9 +4,10 @@ std::string get_ganyuLevel() {
     std::string input{string_input()};
     auto get = GanyuStats.find(input);
     if (get == GanyuStats.end()) {
-        std::cout << "Level does not exist.\n" 
+        std::cerr << "Level does not exist.\n" 
                   << "Levels are only accepted as max in the format. Example: "
-                  << "1, 20, 20+ ... where + is ascended."; 
+                  << "1, 20, 20+, 40, 40+,  ... where + is ascended but not leveled. Use the one closest to your current level." 
+                  << "\nExiting program.\n"; 
         return NULL;
     } else {
         return input;
