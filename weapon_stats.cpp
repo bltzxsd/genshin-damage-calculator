@@ -17,6 +17,11 @@ std::string bows[12] {
     "Amow bow"
 };
 
+const int crescent_passive_boost{36};
+const int amos_passive_boost{52};
+const int prototype{99};
+const int amos{98};
+
 int weapon_name() {
     // Gets weapon input from user. 
     std::cout << "Enter the weapon you have equipped: ";
@@ -25,11 +30,9 @@ int weapon_name() {
         if (weapon == bows[elements]) {
             if ((weapon[0] == 'P') || (weapon[0] == 'p')) {
                 std::cout << "Your weapon is: Prototype Crescent" << std::endl;
-                int prototype{PROTOTYPE};
                 return prototype;
             } else {
                 std::cout << "Your weapon is: Amos Bow" << std::endl;
-                int amos{AMOS};
                 return amos;
             }
         }
@@ -41,7 +44,7 @@ int weapon_name() {
 std::string level_chk(int weapon_name) {
     // There is no viable way I have found to calculate the substat and base damage from level.
     // Mihoyo has forced my hand to create this mess. Too bad! 
-    if (weapon_name == PROTOTYPE) {
+    if (weapon_name == prototype) {
         std::string input {string_input()};
         auto get = PrototypeCrescent.find(input);
         // Check if the value provided by input is in the map.
@@ -52,7 +55,7 @@ std::string level_chk(int weapon_name) {
             std::cout << "Base Damage of your Prototype Crescent is: " << get->second.base_damage << '\n';
             return input;
         }
-    } else if (weapon_name == AMOS) {
+    } else if (weapon_name == amos) {
         std::string input {string_input()};
         auto get = AmosBow.find(input);
         // Check if the value provided by input is in the map.
@@ -69,16 +72,16 @@ std::string level_chk(int weapon_name) {
 }
 
 float passive_chk(int weapon_name) {
-    if (weapon_name == PROTOTYPE) {
+    if (weapon_name == prototype) {
         std::cout << "Your Weapon passive is:\n\tUnreturning:\n\t\t";
         std::cout << "Charged Attack hits on weak points increase Movement SPD by 10% and ATK by 36% for 10s.\n";
-        return CRESCENT_PASSIVE_BOOST; // 36% ATK% boost on hitting weakponts.
+        return crescent_passive_boost; // 36% ATK% boost on hitting weakponts.
                                        // Expected to changed after implementing refines
     }
-    if (weapon_name == AMOS) {
+    if (weapon_name == amos) {
         std::cout << "Your weapon passive is:\n\tStrong-Willed:\n\t\tIncreases Normal Attack and Charged Attack DMG by 12%.";
         std::cout << "\n\t\tNormal and Charged Attack DMG increases by 8 percent every 0.1 seconds for up to 5 times.\n";
-        return AMOS_PASSIVE_BOOST; //  + 12% DMG boost on reg shoot boost + 5 stacks of airtime boost of 8% == 52 % dmg bonus
+        return amos_passive_boost; //  + 12% DMG boost on reg shoot boost + 5 stacks of airtime boost of 8% == 52 % dmg bonus
                                    // Expected to changed after implementing refines
     }
     std::cerr << "passive_chk() failed.\n";
@@ -86,12 +89,12 @@ float passive_chk(int weapon_name) {
 }
 
 float substat_chk(int weapon_name, std::string weapon_level) {
-    if (weapon_name == PROTOTYPE) {
+    if (weapon_name == prototype) {
         auto get = PrototypeCrescent.find(weapon_level);
         std::cout << "Substat ATK% boost of your Prototype Crescent is: " << get->second.substat << "%\n";
         return get->second.substat;
     }
-    if (weapon_name == AMOS) {
+    if (weapon_name == amos) {
         auto get = AmosBow.find(weapon_level);
         std::cout << "Substat ATK% boost of your Amos Bow is: " << get->second.substat << "%\n";
         return get->second.substat;
@@ -100,12 +103,13 @@ float substat_chk(int weapon_name, std::string weapon_level) {
 }
 
 int base_dmg_weapon(std::string weapon_level, int weapon_name) {
-    if (weapon_name == PROTOTYPE) {
+    if (weapon_name == prototype) {
         auto get = PrototypeCrescent.find(weapon_level);
         return get->second.base_damage;
     }
-    if (weapon_name == AMOS) {
+    if (weapon_name == amos) {
         auto get = AmosBow.find(weapon_level);
         return get->second.base_damage;
     }
+    return -1;
 }
