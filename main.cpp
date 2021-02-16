@@ -4,7 +4,7 @@
 #include "include/artifact_value.h"
 #include "include/artifact_set.h"
 #include "include/ganyu_level.h"
-// #include "include/dmg_calculation.h"
+#include "include/dmg_calculation.h"
 #include "include/talent_level.h"
 
 int main() {
@@ -14,7 +14,10 @@ int main() {
     std::string ganyu_lvl = get_ganyuLevel();
     std::cout << "Your Ganyu's level is: " << ganyu_lvl << '\n';
     int ganyu_batk = ganyu_base_atk(ganyu_lvl); 
-    float ganyu_cmdg = ganyu_cdmg(ganyu_lvl);
+    float ganyu_cmdg_val = ganyu_cdmg(ganyu_lvl);
+    ignore_line();
+    std::cout << "Enter the total Crit Damage% on your character: ";
+    ganyu_cmdg_val = input_handler_num(); 
     std::cout << "\n\n";
     ignore_line();
 
@@ -31,7 +34,7 @@ int main() {
     ignore_line();
 
     // Get which set is being used
-    artifact_set_chk();
+    int artifact_set_used{artifact_set_chk()};
     ignore_line();
     // Get Flat ATK from artifact
     flat_atk_get();
@@ -74,8 +77,37 @@ int main() {
               << "\tFifth Hit Ratio:  " << fifth_atk_ratio  << '\n'
               << "\tSixth Hit Ratio:  " << sixth_atk_ratio  << '\n'
               << "\tAim Shot Ratio:   " << aim_atk_ratio    << '\n'
-              << "\tChargeShot Lvl 1: " << charge_atk_ratio << '\n'
-              << "\tFrostflake Arrow: " << frostflake_arrow << '\n'
-              << "\tFrostflake Bloom: " << frostflake_bloom << '\n';
+              << "\tChargeShot Lvl 1 Ratio: " << charge_atk_ratio << '\n'
+              << "\tFrostflake Arrow Ratio: " << frostflake_arrow << '\n'
+              << "\tFrostflake Bloom Ratio: " << frostflake_bloom << '\n';
 
+    ignore_line();
+    // checks if amos passive dmg bonus is applied
+    if (dmgbonus_p == AMOS_PASSIVE_BOOST) {
+        dmgbonus_p = AMOS_PASSIVE_BOOST;
+    } else if (dmgbonus_p == CRESCENT_PASSIVE_BOOST) {
+        // if crescent: atk bonus up 34
+        total_perc_atk += CRESCENT_PASSIVE_BOOST;
+    }
+    // check (elemental) dmg bonus
+    if (artifact_set_used == 35/*wanderer boost*/) {
+        dmgbonus_p += 35;
+    } else if (artifact_set_used == 15) {
+        dmgbonus_p += 15;
+    }
+    std::cout << "Total ATK of Character: ";
+    int total_char_ATK{dmgCalc::basic_atk(characterbaseatk, total_perc_atk, total_flat_atk)};
+    std::cout << total_char_ATK << "\n";
+    std::cout << "Total outgoing DMG of char:"
+              << "\n\tFirst Hit DMG:  "
+              << "\tSecond Hit DMG: " << second_atk_ratio << '\n'
+              << "\tThird Hit DMG:  " << third_atk_ratio  << '\n'
+              << "\tFourth Hit DMG: " << fourth_atk_ratio << '\n'
+              << "\tFifth Hit DMG:  " << fifth_atk_ratio  << '\n'
+              << "\tSixth Hit DMG:  " << sixth_atk_ratio  << '\n'
+              << "\tAim Shot DMG:   " << aim_atk_ratio    << '\n'
+              << "\tChargeShot Lvl1 DMG: " << charge_atk_ratio << '\n'
+              << "\tFrostflake Arrow DMG: " << frostflake_arrow << '\n'
+              << "\tFrostflake Bloom DMG: " << frostflake_bloom << '\n'
+    ;
 }
