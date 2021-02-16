@@ -27,7 +27,7 @@ make
 ### Windows way
 
 If on Windows, you have to compile it manually unfortunately :
-I would recommend you to install the [LLVM toolchain 64bit}(<https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/LLVM-11.0.0-win64.exe>) for this since MSVC needs VS20XX and MinGW is harder to deal with.
+I would recommend you to install the [LLVM toolchain 64bit](<https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/LLVM-11.0.0-win64.exe>) for this since MSVC needs VS20XX and MinGW is harder to deal with.
 **( you can also run linux way if you have WSL :) )**
 
 ```shell
