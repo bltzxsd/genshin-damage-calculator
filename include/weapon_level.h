@@ -1,10 +1,11 @@
 #ifndef WEAPON_LEVEL
 #define WEAPON_LEVEL
 
-#define PROTOTYPE 99
-#define AMOS 98
+extern const int prototype;
+extern const int amos;
 
 #include <unordered_map>
+#include <string>
 
 struct Weapon{ int base_damage; float substat; };
 const std::unordered_map<std::string, Weapon> AmosBow = {
