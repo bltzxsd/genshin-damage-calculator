@@ -71,8 +71,6 @@ int main() {
               << "\tFrostflake Arrow Ratio: " << frostflake_arrow << '\n'
               << "\tFrostflake Bloom Ratio: " << frostflake_bloom << '\n';
 
-    ignore_line();
-
     std::cout << "Total ATK of Character: ";
     int total_char_ATK{dmgCalc::basic_atk(characterbaseatk, total_perc_atk, total_flat_atk)};
     std::cout << total_char_ATK << "\n";
