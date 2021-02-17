@@ -1,8 +1,8 @@
 #ifndef ARTIFACT_SET
 #define ARTIFACT_SET 
 
-#define WANDERERS 21
-#define BLIZZARD 22
+extern const int wanderers;
+extern const int blizzard;
 
 #include "inputhandler.h"
 
