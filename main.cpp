@@ -6,6 +6,7 @@
 #include "include/ganyu_level.h"
 #include "include/dmg_calculation.h"
 #include "include/talent_level.h"
+#include "include/attack_output.h"
 
 int main() {
 
@@ -58,19 +59,6 @@ int main() {
     // Calculating final values to be passed: 
     std::cout << "Total flat ATK: " << total_flat_atk << '\n'
               << "Total ATK%: " << total_perc_atk << '%' << '\n';
-    
-    auto_talent_lvl = talent_level_get();
-    get = AutoTalents.find(auto_talent_lvl);
-    float first_atk_ratio{auto_first_atk(auto_talent_lvl)};
-    float second_atk_ratio{auto_second_atk(auto_talent_lvl)};
-    float third_atk_ratio{auto_third_atk(auto_talent_lvl)};
-    float fourth_atk_ratio{auto_fourth_atk(auto_talent_lvl)};
-    float fifth_atk_ratio{auto_fifth_atk(auto_talent_lvl)};
-    float sixth_atk_ratio{auto_sixth_atk(auto_talent_lvl)};
-    float aim_atk_ratio{auto_aimshot(auto_talent_lvl)};
-    float charge_atk_ratio{auto_chargeshot(auto_talent_lvl)};
-    float frostflake_arrow{auto_frostflake(auto_talent_lvl)};
-    float frostflake_bloom{auto_frostflake_bloom(auto_talent_lvl)};
 
     std::cout << "\tFirst Hit Ratio:  " << first_atk_ratio  << '\n'
               << "\tSecond Hit Ratio: " << second_atk_ratio << '\n'
@@ -84,19 +72,7 @@ int main() {
               << "\tFrostflake Bloom Ratio: " << frostflake_bloom << '\n';
 
     ignore_line();
-    // checks if amos passive dmg bonus is applied
-    if (dmgbonus_p == amos_passive_boost) {
-        dmgbonus_p = amos_passive_boost;
-    } else if (dmgbonus_p == crescent_passive_boost) {
-        // if crescent: atk bonus up 34
-        total_perc_atk += crescent_passive_boost;
-    }
-    // check (elemental) dmg bonus
-    if (artifact_set_used == 35/*wanderer boost*/) {
-        dmgbonus_p += 35;
-    } else if (artifact_set_used == 15) {
-        dmgbonus_p += 15;
-    }
+
     std::cout << "Total ATK of Character: ";
     int total_char_ATK{dmgCalc::basic_atk(characterbaseatk, total_perc_atk, total_flat_atk)};
     std::cout << total_char_ATK << "\n";
