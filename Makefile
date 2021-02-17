@@ -4,8 +4,12 @@ INCLUDE:= ${CURDIR}/include
 OBJDIR:= ${CURDIR}/objs
 OUTPUT:=.out
 
-all: main.o inputhandler.o weapon_stats.o artifact_value.o artifact_set.o ganyu_level.o talent_level.o dmg_calculation.o
-	$(CC) $(CXXFLAGS) main.o inputhandler.o weapon_stats.o artifact_value.o artifact_set.o ganyu_level.o talent_level.o dmg_calculation.o -o a$(OUTPUT)
+all: main.o inputhandler.o weapon_stats.o artifact_value.o artifact_set.o ganyu_level.o talent_level.o dmg_calculation.o attack_output.o
+	$(CC) $(CXXFLAGS) main.o \
+	inputhandler.o weapon_stats.o \
+	artifact_value.o artifact_set.o \
+	ganyu_level.o talent_level.o \
+	attack_output.o dmg_calculation.o -o a$(OUTPUT)
 
 main.o: main.cpp 
 	$(CC) $(CXXFLAGS) -c main.cpp
@@ -30,6 +34,9 @@ talent_level.o: talent_level.cpp $(INCLUDE)/talent_level.h $(INCLUDE)/inputhandl
 
 dmg_calculation.o: dmg_calculation.cpp $(INCLUDE)/dmg_calculation.h $(INCLUDE)/inputhandler.h
 	$(CC) $(CXXFLAGS) -c dmg_calculation.cpp
+
+attack_output.o: attack_output.cpp $(INCLUDE)/attack_output.h $(INCLUDE)/weapon_level.h $(INCLUDE)/artifact_set.h $(INCLUDE)/talent_level.h
+	$(CC) $(CXXFLAGS) -c attack_output.cpp
 
 .PHONY: clean cleanall
 clean: 
