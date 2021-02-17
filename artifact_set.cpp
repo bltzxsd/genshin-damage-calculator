@@ -15,20 +15,21 @@ std::string artifact_set_name[] {
     "wanderer",
 };
 
+const int wanderers{35};
+const int blizzard{15};
+
 int artifact_set_chk() {
     std::cout << "Enter the artifact set you are using (Wanderer's Troupe / Blizzard Strayer): ";
     std::string artifact_used{string_input()};
-    for (int x {0}; x <= (int) std::size(artifact_set_name); ++x) {
+    for (int x{0}; x <= (int) std::size(artifact_set_name); ++x) {
         if (artifact_used == artifact_set_name[x]) {
             if ((artifact_used[0] == 'W') || (artifact_used[0] == 'w')) {
                 std::cout << "You're using Wanderer's Troupe set. 4PC (optimal)\n\n";
-                int wanderer_boost{35};
-                return wanderer_boost;
+                return wanderers;
             }
             if ((artifact_used[0] == 'B') || (artifact_used[0] == 'b')) {
                 std::cout << "You're using Blizzard Strayer set. 4PC (optimal)\n\n";
-                int blizzard_boost{15};
-                return blizzard_boost;
+                return blizzard;
             }
         }
     }
