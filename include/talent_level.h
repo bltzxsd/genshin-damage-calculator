@@ -31,7 +31,8 @@ const std::unordered_map<int, Talent> AutoTalents {
     {11, {67.80, 76.07, 97.20, 97.20, 103.08, 123.11, 92.82, 235.6, 243.2, 413.44}}
 };
 extern std::unordered_map<int, Talent>::const_iterator get;
-extern int auto_talent_lvl;
+extern int auto_talent_level;
+
 int talent_level_get();
 float auto_first_atk(int);
 float auto_second_atk(int);
