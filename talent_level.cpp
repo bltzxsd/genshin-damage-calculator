@@ -8,13 +8,15 @@ int talent_level_get() {
         std::cout << "Talent level does not exist. Please try again."
                   << "Talent levels are only accepted in the range of 1 to 11: ";
     } else {
+        auto_talent_level = input;
         return input;
     }
     return 1;
 }
 
-int auto_talent_lvl = 0;
-std::unordered_map<int, Talent>::const_iterator get;
+int auto_talent_level = 1;
+std::unordered_map<int, Talent>::const_iterator get = AutoTalents.find(auto_talent_level);
+
 float auto_first_atk(int talent_level) {
     float first_atk{get->second.first_hit};
     return first_atk;
