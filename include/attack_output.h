@@ -15,9 +15,9 @@ extern float aim_atk_ratio;
 extern float charge_atk_ratio;
 extern float frostflake_arrow;
 extern float frostflake_bloom;
-extern int talent_level;
 
-int weapon_dmg_bonus(float&, float&, float&, float&);
-float artifact_dmg_bonus(int&, float&, float&);
+
+int weapon_dmg_bonus(float, float, float, float);
+float artifact_dmg_bonus(int, float, float);
 
 #endif
