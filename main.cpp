@@ -60,7 +60,6 @@ int main() {
     std::cout << "Total flat ATK: " << total_flat_atk << '\n'
               << "Total ATK%: " << total_perc_atk << '%' << '\n';
 
-    ignore_line();
     int talent_lvl{talent_level_get()};
     get = AutoTalents.find(talent_lvl);
 
@@ -75,8 +74,8 @@ int main() {
               << "\tFrostflake Arrow Ratio: " << frostflake_arrow << '\n'
               << "\tFrostflake Bloom Ratio: " << frostflake_bloom << '\n';
 
-    std::cout << "Total ATK of Character: ";
     int total_char_ATK{dmgCalc::basic_atk(characterbaseatk, total_perc_atk, total_flat_atk)};
+    std::cout << "Total ATK of Character: " << total_char_ATK << '\n';
     /*std::cout << total_char_ATK << "\n";
     std::cout << "Total outgoing DMG of char:"
               << "\n\tFirst Hit DMG:  "
