@@ -23,7 +23,7 @@ int dmgCalc::basic_atk(int baseATK, float atk_percentage, int flat_atk) {
     total_character_atk = (baseATK * temp_perc) + flat_atk;
     return static_cast<int>(total_character_atk); 
 }
-int dmgCalc::outgoing_dmg(int atk, int talent_percent, int damage_bonus) {
+int dmgCalc::outgoing_dmg(int& atk, int talent_percent, int damage_bonus) {
     return (atk * (talent_percent / 100)) * (1 + (damage_bonus / 100));
 }
 int dmgCalc::amping_dmg(int dmg, float embonus_perc, int dmg_bonus) {
