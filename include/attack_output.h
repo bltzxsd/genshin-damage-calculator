@@ -4,6 +4,7 @@
 #include "weapon_level.h"
 #include "artifact_set.h"
 #include "talent_level.h"
+#include "dmg_calculation.h"
 
 extern float first_atk_ratio;
 extern float second_atk_ratio;
@@ -18,6 +19,6 @@ extern float frostflake_bloom;
 
 
 int weapon_dmg_bonus(float, float, float, float);
-float artifact_dmg_bonus(int, float, float);
+float artifact_dmg_bonus(int, float);
 
 #endif
