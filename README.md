@@ -27,19 +27,21 @@ make
 ### Windows way
 
 If on Windows, you have to compile it manually unfortunately :
-I would recommend you to install the [LLVM toolchain 64bit](<https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/LLVM-11.0.0-win64.exe>) for this since MSVC needs VS20XX and MinGW is dumb ( i couldnt get it to compile successfully on win but it worked on wsl ) 
+I would recommend you to install the [LLVM toolchain 64bit](<https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/LLVM-11.0.0-win64.exe>) for this since MSVC needs VS20XX and MinGW is dumb ( i couldnt get it to compile successfully on win but it worked on wsl )
+**UPDATE: compiling on windows is a nono since it doesn't let me write unsafe code**
+*( just use WSL :) )*
 
-**UPDATE: compiling on windows is a nono since it doesn't let me write unsafe code** 
-```cpp 
+```cpp
 auto get -> second.x
 ```
+
 which evalulates to:
+
 ```cpp
 std::unordered_map<int, Talent>::const_iterator get -> second.x
 ```
-where `..talent>` is a struct of values for talents
 
-**( you can also run linux way if you have WSL :) )**
+where `..talent>` is a struct of values for talents
 
 ```shell
 clang++ -std=c++17 -Wall -O2 -Ofast *.cpp -o dmg_calc.exe
