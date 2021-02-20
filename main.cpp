@@ -92,10 +92,8 @@ int main() {
     int charge_shotD{dmgCalc::outgoing_dmg(total_char_ATK, charge_atk_ratio, total_dmg_boost)};
     int frostflake_arrowD{dmgCalc::outgoing_dmg(total_char_ATK, frostflake_arrow, total_dmg_boost)};
     int frostflake_bloomD{dmgCalc::outgoing_dmg(total_char_ATK, frostflake_bloom, total_dmg_boost)};
-    
-    std::cout << total_char_ATK << "\n";
-    std::cout << "Total outgoing DMG of char:"
-              << "\n\tFirst Hit DMG:  " << first_hitD << "\n"
+ 
+    std::cout << "\n\tFirst Hit DMG:  " << first_hitD << "\n"
               << "\tSecond Hit DMG: " << second_hitD << '\n'
               << "\tThird Hit DMG:  " << third_hitD << '\n'
               << "\tFourth Hit DMG: " << fourth_hitD << '\n'
