@@ -32,13 +32,13 @@ I would recommend you to install the [LLVM toolchain 64bit](<https://github.com/
 *( just use WSL :) )*
 
 ```cpp
-auto get  ->  second.x
+auto get -> second.x
 ```
 
 which evalulates to:
 
 ```cpp
-std::unordered_map<int, Talent>::const_iterator get  ->  second.x
+std::unordered_map<int, Talent>::const_iterator get -> second.x
 ```
 
 where `..talent>` is a struct of values for talents
