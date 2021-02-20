@@ -31,12 +31,13 @@ I would recommend you to install the [LLVM toolchain 64bit](<https://github.com/
 
 **UPDATE: compiling on windows is a nono since it doesn't let me write unsafe code** 
 ```cpp 
-(auto get -> second.x)
+auto get -> second.x
 ```
 which evalulates to:
 ```cpp
-(std::unordered_map<int, Talent>::const_iterator get -> second.x)
+std::unordered_map<int, Talent>::const_iterator get -> second.x
 ```
+where `..talent>` is a struct of values for talents
 
 **( you can also run linux way if you have WSL :) )**
 
