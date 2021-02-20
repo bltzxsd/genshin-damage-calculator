@@ -104,7 +104,15 @@ int main() {
               << "\tAim Shot DMG:   " << aim_shotD << '\n'
               << "\tChargeShot Lvl1 DMG: " << charge_shotD << '\n'
               << "\tFrostflake Arrow DMG: " << frostflake_arrowD << '\n'
-              << "\tFrostflake Bloom DMG: " << frostflake_bloomD << '\n';
-    std::cout << "Please press the Enter key to quit the program.\n\n";
-    getchar();
+              << "\tFrostflake Bloom DMG: " << frostflake_bloomD << '\n'
+              << "\n\tFirst Hit Crit DMG:  " << dmgCalc::crit_dmg(first_hitD, end_ganyu_cmdg_val)  << "\n"
+              << "\tSecond Hit Crit DMG: " << dmgCalc::crit_dmg(second_hitD, end_ganyu_cmdg_val) << '\n'
+              << "\tThird Hit Crit DMG:  " << dmgCalc::crit_dmg(third_hitD, end_ganyu_cmdg_val) << '\n'
+              << "\tFourth Hit Crit DMG: " << dmgCalc::crit_dmg(fourth_hitD, end_ganyu_cmdg_val) << '\n'
+              << "\tFifth Hit Crit DMG:  " << dmgCalc::crit_dmg(fifth_hitD, end_ganyu_cmdg_val) << '\n'
+              << "\tSixth Hit Crit DMG:  " << dmgCalc::crit_dmg(sixth_hitD, end_ganyu_cmdg_val) << '\n'
+              << "\tAim Shot Crit DMG:   " << dmgCalc::crit_dmg(aim_shotD, end_ganyu_cmdg_val) << '\n'
+              << "\tChargeShot Lvl 1 Crit DMG: " << dmgCalc::crit_dmg(charge_shotD, end_ganyu_cmdg_val) << '\n'
+              << "\tFrostflake Arrow Crit DMG: " << dmgCalc::crit_dmg(frostflake_arrowD, end_ganyu_cmdg_val) << '\n'
+              << "\tFrostflake Bloom Crit DMG: " << dmgCalc::crit_dmg(frostflake_bloomD, end_ganyu_cmdg_val) << '\n';
 }
