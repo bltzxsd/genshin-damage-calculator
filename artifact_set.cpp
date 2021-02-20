@@ -33,7 +33,7 @@ int artifact_set_chk() {
             }
         }
     }
-    std::cout << "Not a valid arfifact\ni.e: NOT Wanderer's Troupe / Blizzard Strayer\n"
+    std::cerr << "Not a valid arfifact\ni.e: NOT Wanderer's Troupe / Blizzard Strayer\n"
               << "Warning: Artifact values will not be included in this calculation.\n";
     return 1;
 }
