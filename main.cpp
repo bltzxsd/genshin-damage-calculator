@@ -62,30 +62,45 @@ int main() {
 
     int talent_lvl{talent_level_get()};
     get = AutoTalents.find(talent_lvl);
+    float elemental_bonus = ((artifact_set_used == blizzard) ? 15 : 0.0F);
+    float regular_bonus = ((weaponName == amos) ? 52 : 0.0F);
+    float total_dmg_boost = elemental_bonus + regular_bonus;
 
-    std::cout << "\tFirst Hit Ratio:  " << first_atk_ratio  << '\n'
+    std::cout << "\tFirst Hit Ratio:  " << first_atk_ratio << '\n'
               << "\tSecond Hit Ratio: " << second_atk_ratio << '\n'
-              << "\tThird Hit Ratio:  " << third_atk_ratio  << '\n'
+              << "\tThird Hit Ratio:  " << third_atk_ratio << '\n'
               << "\tFourth Hit Ratio: " << fourth_atk_ratio << '\n'
-              << "\tFifth Hit Ratio:  " << fifth_atk_ratio  << '\n'
-              << "\tSixth Hit Ratio:  " << sixth_atk_ratio  << '\n'
-              << "\tAim Shot Ratio:   " << aim_atk_ratio    << '\n'
+              << "\tFifth Hit Ratio:  " << fifth_atk_ratio << '\n'
+              << "\tSixth Hit Ratio:  " << sixth_atk_ratio << '\n'
+              << "\tAim Shot Ratio:   " << aim_atk_ratio << '\n'
               << "\tChargeShot Lvl 1 Ratio: " << charge_atk_ratio << '\n'
               << "\tFrostflake Arrow Ratio: " << frostflake_arrow << '\n'
               << "\tFrostflake Bloom Ratio: " << frostflake_bloom << '\n';
 
     int total_char_ATK{dmgCalc::basic_atk(characterbaseatk, total_perc_atk, total_flat_atk)};
     std::cout << "Total ATK of Character: " << total_char_ATK << '\n';
-    /*std::cout << total_char_ATK << "\n";
+    
+    int first_hitD{dmgCalc::outgoing_dmg(total_char_ATK, first_atk_ratio, regular_bonus)};
+    int second_hitD{dmgCalc::outgoing_dmg(total_char_ATK, second_atk_ratio, regular_bonus)};
+    int third_hitD{dmgCalc::outgoing_dmg(total_char_ATK, third_atk_ratio, regular_bonus)}; 
+    int fourth_hitD{dmgCalc::outgoing_dmg(total_char_ATK, fourth_atk_ratio, regular_bonus)};
+    int fifth_hitD{dmgCalc::outgoing_dmg(total_char_ATK, fifth_atk_ratio, regular_bonus)};
+    int sixth_hitD{dmgCalc::outgoing_dmg(total_char_ATK, sixth_atk_ratio, regular_bonus)};
+    int aim_shotD{dmgCalc::outgoing_dmg(total_char_ATK, aim_atk_ratio, total_dmg_boost)};
+    int charge_shotD{dmgCalc::outgoing_dmg(total_char_ATK, charge_atk_ratio, total_dmg_boost)};
+    int frostflake_arrowD{dmgCalc::outgoing_dmg(total_char_ATK, frostflake_arrow, total_dmg_boost)};
+    int frostflake_bloomD{dmgCalc::outgoing_dmg(total_char_ATK, frostflake_bloom, total_dmg_boost)};
+    
+    std::cout << total_char_ATK << "\n";
     std::cout << "Total outgoing DMG of char:"
-              << "\n\tFirst Hit DMG:  "
-              << "\tSecond Hit DMG: " << second_atk_ratio << '\n'
-              << "\tThird Hit DMG:  " << third_atk_ratio  << '\n'
-              << "\tFourth Hit DMG: " << fourth_atk_ratio << '\n'
-              << "\tFifth Hit DMG:  " << fifth_atk_ratio  << '\n'
-              << "\tSixth Hit DMG:  " << sixth_atk_ratio  << '\n'
-              << "\tAim Shot DMG:   " << aim_atk_ratio    << '\n'
-              << "\tChargeShot Lvl1 DMG: " << charge_atk_ratio << '\n'
-              << "\tFrostflake Arrow DMG: " << frostflake_arrow << '\n'
-              << "\tFrostflake Bloom DMG: " << frostflake_bloom << '\n';*/
+              << "\n\tFirst Hit DMG:  " << first_hitD << "\n"
+              << "\tSecond Hit DMG: " << second_hitD << '\n'
+              << "\tThird Hit DMG:  " << third_hitD << '\n'
+              << "\tFourth Hit DMG: " << fourth_hitD << '\n'
+              << "\tFifth Hit DMG:  " << fifth_hitD << '\n'
+              << "\tSixth Hit DMG:  " << sixth_hitD << '\n'
+              << "\tAim Shot DMG:   " << aim_shotD << '\n'
+              << "\tChargeShot Lvl1 DMG: " << charge_shotD << '\n'
+              << "\tFrostflake Arrow DMG: " << frostflake_arrowD << '\n'
+              << "\tFrostflake Bloom DMG: " << frostflake_bloomD << '\n';
 }
