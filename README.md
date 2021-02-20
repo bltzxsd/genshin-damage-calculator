@@ -1,6 +1,7 @@
 # Ganyu-Damage-Calculator
 
 This is a practice project that does nothing (currently)
+
 **much ❤️ to [Honey Impact](<<https://genshin.honeyhunterworld.com/>) for the data**
 
 ## Dependencies
