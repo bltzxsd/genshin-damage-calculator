@@ -16,14 +16,14 @@ std::string get_ganyuLevel() {
 
 int ganyu_base_atk(std::string level) {
     auto get = GanyuStats.find(level);
-    auto base_atk{get->second.base_atk};
+    auto base_atk{get -> second.base_atk};
     std::cout << "Base ATK of your Ganyu is: " << base_atk << '\n';
     return base_atk;
 }
 
 float ganyu_cdmg(std::string level) {
     auto get = GanyuStats.find(level);
-    auto cdmg{get->second.cdmg};
+    auto cdmg{get -> second.cdmg};
     std::cout << "Crit DMG provided by Ascension Stat is: " << cdmg << "%\n";
     return cdmg; 
 }

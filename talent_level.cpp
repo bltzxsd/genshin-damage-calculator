@@ -18,42 +18,42 @@ int auto_talent_level = 1;
 std::unordered_map<int, Talent>::const_iterator get = AutoTalents.find(auto_talent_level);
 
 float auto_first_atk(int talent_level) {
-    float first_atk{get->second.first_hit};
+    float first_atk{get -> second.first_hit};
     return first_atk;
 }
 float auto_second_atk(int talent_level) {
-    float second_atk{get->second.second_hit};
+    float second_atk{get -> second.second_hit};
     return second_atk;
 }
 float auto_third_atk(int talent_level) {
-    float third_atk{get->second.third_hit};
+    float third_atk{get -> second.third_hit};
     return third_atk;
 }
 float auto_fourth_atk(int talent_level) {
-    float fourth_atk{get->second.fouth_hit};
+    float fourth_atk{get -> second.fouth_hit};
     return fourth_atk;
 }
 float auto_fifth_atk(int talent_level) {
-    float fifth_atk{get->second.fifth_hit};
+    float fifth_atk{get -> second.fifth_hit};
     return fifth_atk;
 }
 float auto_sixth_atk(int talent_level) {
-    float sixth_atk{get->second.sixth_hit};
+    float sixth_atk{get -> second.sixth_hit};
     return sixth_atk;
 }
 float auto_aimshot(int talent_level) {
-    float aimshot{get->second.aim_shot};
+    float aimshot{get -> second.aim_shot};
     return aimshot;
 }
 float auto_chargeshot(int talent_level) {
-    float chargedshot{get->second.charge_shot_level_one};
+    float chargedshot{get -> second.charge_shot_level_one};
     return chargedshot;
 }
 float auto_frostflake(int talent_level) {
-    float frostflake_arrow{get->second.frostflake_arrow};
+    float frostflake_arrow{get -> second.frostflake_arrow};
     return frostflake_arrow;
 }
 float auto_frostflake_bloom(int talent_level) {
-    float frostflake_bloom{get->second.frostflake_arrow_bloom};
+    float frostflake_bloom{get -> second.frostflake_arrow_bloom};
     return frostflake_bloom;
 }

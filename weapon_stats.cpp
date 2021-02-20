@@ -26,7 +26,7 @@ int weapon_name() {
     // Gets weapon input from user. 
     std::cout << "Enter the weapon you have equipped: ";
     std::string weapon{string_input()};
-    for (int elements{0}; elements <= std::size(bows); ++elements) {
+    for (std::size_t elements{0}; elements <= std::size(bows); ++elements) {
         if (weapon == bows[elements]) {
             if ((weapon[0] == 'P') || (weapon[0] == 'p')) {
                 std::cout << "Your weapon is: Prototype Crescent" << std::endl;
@@ -52,7 +52,7 @@ std::string level_chk(int weapon_name) {
             std::cout << "Value does not exist. Please try again\n";
             return NULL;
         } else {
-            std::cout << "Base Damage of your Prototype Crescent is: " << get->second.base_damage << '\n';
+            std::cout << "Base Damage of your Prototype Crescent is: " << get -> second.base_damage << '\n';
             return input;
         }
     } else if (weapon_name == amos) {
@@ -63,7 +63,7 @@ std::string level_chk(int weapon_name) {
             std::cout << "Value does not exist. Please try again\n";
             return NULL;
         } else {
-            std::cout << "Base Damage of your Amos Bow is: " << get->second.base_damage << '\n';
+            std::cout << "Base Damage of your Amos Bow is: " << get -> second.base_damage << '\n';
             return input;
         }
 
@@ -71,33 +71,16 @@ std::string level_chk(int weapon_name) {
     return NULL;
 }
 
-float passive_chk(int weapon_name) {
-    if (weapon_name == prototype) {
-        std::cout << "Your Weapon passive is:\n\tUnreturning:\n\t\t";
-        std::cout << "Charged Attack hits on weak points increase Movement SPD by 10% and ATK by 36% for 10s.\n";
-        return crescent_passive_boost; // 36% ATK% boost on hitting weakponts.
-                                       // Expected to changed after implementing refines
-    }
-    if (weapon_name == amos) {
-        std::cout << "Your weapon passive is:\n\tStrong-Willed:\n\t\tIncreases Normal Attack and Charged Attack DMG by 12%.";
-        std::cout << "\n\t\tNormal and Charged Attack DMG increases by 8 percent every 0.1 seconds for up to 5 times.\n";
-        return amos_passive_boost; //  + 12% DMG boost on reg shoot boost + 5 stacks of airtime boost of 8% == 52 % dmg bonus
-                                   // Expected to changed after implementing refines
-    }
-    std::cerr << "passive_chk() failed.\n";
-    return 1;
-}
-
 float substat_chk(int weapon_name, std::string weapon_level) {
     if (weapon_name == prototype) {
         auto get = PrototypeCrescent.find(weapon_level);
-        std::cout << "Substat ATK% boost of your Prototype Crescent is: " << get->second.substat << "%\n";
-        return get->second.substat;
+        std::cout << "Substat ATK% boost of your Prototype Crescent is: " << get -> second.substat << "%\n";
+        return get -> second.substat;
     }
     if (weapon_name == amos) {
         auto get = AmosBow.find(weapon_level);
-        std::cout << "Substat ATK% boost of your Amos Bow is: " << get->second.substat << "%\n";
-        return get->second.substat;
+        std::cout << "Substat ATK% boost of your Amos Bow is: " << get -> second.substat << "%\n";
+        return get -> second.substat;
     }
     return 1;
 }
@@ -105,11 +88,11 @@ float substat_chk(int weapon_name, std::string weapon_level) {
 int base_dmg_weapon(std::string weapon_level, int weapon_name) {
     if (weapon_name == prototype) {
         auto get = PrototypeCrescent.find(weapon_level);
-        return get->second.base_damage;
+        return get -> second.base_damage;
     }
     if (weapon_name == amos) {
         auto get = AmosBow.find(weapon_level);
-        return get->second.base_damage;
+        return get -> second.base_damage;
     }
     return -1;
 }

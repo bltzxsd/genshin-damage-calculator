@@ -1,11 +1,12 @@
 CC:= clang++
-CXXFLAGS:= -std=c++17 -Wall -ggdb -g3
+CXXFLAGS:= -std=c++17 -O3 -Ofast
 INCLUDE:= ${CURDIR}/include
 OBJDIR:= ${CURDIR}/objs
 OUTPUT:=.out
 
 all: main.o inputhandler.o weapon_stats.o artifact_value.o artifact_set.o ganyu_level.o talent_level.o dmg_calculation.o attack_output.o
-	$(CC) $(CXXFLAGS) main.o \
+	$(CC) $(CXXFLAGS) \
+	main.o \
 	inputhandler.o weapon_stats.o \
 	artifact_value.o artifact_set.o \
 	ganyu_level.o talent_level.o \
@@ -43,4 +44,4 @@ clean:
 	rm -f *.o *.obj
 
 cleanall:
-	rm -f a$(OUTPUT) *.o *.obj *.exe
+	rm -f a$(OUTPUT) *.o *.obj *.exe *.ilk *.pdb

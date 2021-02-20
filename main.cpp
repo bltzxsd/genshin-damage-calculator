@@ -31,7 +31,6 @@ int main() {
     std::cout << "Enter the level of your " << name_weapon << ": ";
     std::string weapon_level{level_chk(weaponName)};
     float weapon_substat{substat_chk(weaponName, weapon_level)};
-    float dmgbonus_p{passive_chk(weaponName)};
     int weapon_base_dmg{base_dmg_weapon(weapon_level, weaponName)};
     std::cout << "\n\n";
     ignore_line();
@@ -63,6 +62,9 @@ int main() {
     int talent_lvl{talent_level_get()};
     get = AutoTalents.find(talent_lvl);
     float elemental_bonus = ((artifact_set_used == blizzard) ? 15 : 0.0F);
+    std::cout << "Enter the Cryo DMG Bonus% your Goblet of Eonothem has: ";
+    float cryo_dmg_bonus = input_handler_range(0.0F, 46.6F);
+    elemental_bonus += cryo_dmg_bonus;
     float regular_bonus = ((weaponName == amos) ? 52 : 0.0F);
     float total_dmg_boost = elemental_bonus + regular_bonus;
 
@@ -103,4 +105,6 @@ int main() {
               << "\tChargeShot Lvl1 DMG: " << charge_shotD << '\n'
               << "\tFrostflake Arrow DMG: " << frostflake_arrowD << '\n'
               << "\tFrostflake Bloom DMG: " << frostflake_bloomD << '\n';
+    std::cout << "Please press the Enter key to quit the program.\n\n";
+    getchar();
 }
