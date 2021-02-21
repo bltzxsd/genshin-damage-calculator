@@ -37,6 +37,7 @@ int main() {
     // Get which set is being used
     int artifact_set_used{artifact_set_chk()};
     std::cout << "Enter the Cryo DMG Bonus% your Goblet of Eonothem has: ";
+    ignore_line();
     float cryo_dmg_bonus = input_handler_range(0.0F, 46.6F);
     ignore_line();
     // Get Flat ATK from artifact
@@ -56,7 +57,6 @@ int main() {
         total_perc_atk += x;
     }
 
-    ignore_line();
     int talent_lvl{talent_level_get()};
     get = AutoTalents.find(talent_lvl);
     float elemental_bonus = ((artifact_set_used == blizzard) ? 15 : 0.0F);
@@ -102,7 +102,7 @@ int main() {
               << "     Frostflake Bloom Ratio   -> " << frostflake_bloom << "%\n";
 
 
-    std::cout << " \n\n   | Regular DMG                  \t| Crit DMG\t|\n"
+    std::cout << " \n\n   | Regular DMG                  \t| Crit DMG\t                        |\n"
               << "   |------------------------------------|---------------------------------------|"
               << "\n   | First Hit DMG:\t\t" << first_hitD << "\t|"
               << " First Hit Crit DMG:\t\t" << dmgCalc::crit_dmg(first_hitD, end_ganyu_cmdg_val) << "\t|\n"
@@ -130,7 +130,7 @@ int main() {
 
               << "   | Frostflake Arrow DMG:\t" << frostflake_arrowD << "\t|"
               << " Frostflake Arrow Crit DMG:\t" << dmgCalc::crit_dmg(frostflake_arrowD, end_ganyu_cmdg_val) << "\t|\n"
-              
+
               << "   | Frostflake Bloom DMG:\t" << frostflake_bloomD << "\t|"
               << " Frostflake Bloom Crit DMG:\t" << dmgCalc::crit_dmg(frostflake_bloomD, end_ganyu_cmdg_val) << "\t|\n";
 }
