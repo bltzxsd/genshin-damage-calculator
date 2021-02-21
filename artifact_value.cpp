@@ -1,7 +1,7 @@
 #include "include/artifact_value.h"
 
-int flat_atk[5]{};
-float atk_percent[5]{};
+int flat_atk[5]{0, 0, 0, 0, 0};
+float atk_percent[5]{0.0F, 0.0F, 0.0F, 0.0F, 0.0F};
 
 void flat_atk_get() {
     for (size_t x = 0; x <= 5; ++x) {
