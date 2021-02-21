@@ -29,10 +29,10 @@ int weapon_name() {
     for (std::size_t elements{0}; elements <= std::size(bows); ++elements) {
         if (weapon == bows[elements]) {
             if ((weapon[0] == 'P') || (weapon[0] == 'p')) {
-                std::cout << "Your weapon is: Prototype Crescent" << std::endl;
+                std::cout << "  Your weapon is: Prototype Crescent" << std::endl;
                 return prototype;
             } else {
-                std::cout << "Your weapon is: Amos Bow" << std::endl;
+                std::cout << "  Your weapon is: Amos Bow" << std::endl;
                 return amos;
             }
         }
@@ -52,7 +52,7 @@ std::string level_chk(int weapon_name) {
             std::cout << "Value does not exist. Please try again\n";
             return NULL;
         } else {
-            std::cout << "Base Damage of your Prototype Crescent is: " << get -> second.base_damage << '\n';
+            std::cout << "  Base Damage of your Prototype Crescent is: " << get -> second.base_damage << '\n';
             return input;
         }
     } else if (weapon_name == amos) {
@@ -63,7 +63,7 @@ std::string level_chk(int weapon_name) {
             std::cout << "Value does not exist. Please try again\n";
             return NULL;
         } else {
-            std::cout << "Base Damage of your Amos Bow is: " << get -> second.base_damage << '\n';
+            std::cout << "  Base Damage of your Amos Bow is: " << get -> second.base_damage << '\n';
             return input;
         }
 
@@ -74,12 +74,12 @@ std::string level_chk(int weapon_name) {
 float substat_chk(int weapon_name, std::string weapon_level) {
     if (weapon_name == prototype) {
         auto get = PrototypeCrescent.find(weapon_level);
-        std::cout << "Substat ATK% boost of your Prototype Crescent is: " << get -> second.substat << "%\n";
+        std::cout << "  Substat ATK% boost of your Prototype Crescent is: " << get -> second.substat << "%\n";
         return get -> second.substat;
     }
     if (weapon_name == amos) {
         auto get = AmosBow.find(weapon_level);
-        std::cout << "Substat ATK% boost of your Amos Bow is: " << get -> second.substat << "%\n";
+        std::cout << "  Substat ATK% boost of your Amos Bow is: " << get -> second.substat << "%\n";
         return get -> second.substat;
     }
     return 1;
