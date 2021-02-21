@@ -63,6 +63,7 @@ int main() {
     get = AutoTalents.find(talent_lvl);
     float elemental_bonus = ((artifact_set_used == blizzard) ? 15 : 0.0F);
     std::cout << "Enter the Cryo DMG Bonus% your Goblet of Eonothem has: ";
+    ignore_line();
     float cryo_dmg_bonus = input_handler_range(0.0F, 46.6F);
     elemental_bonus += cryo_dmg_bonus;
     float regular_bonus = ((weaponName == amos) ? 52 : 0.0F);
