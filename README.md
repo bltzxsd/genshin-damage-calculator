@@ -2,7 +2,7 @@
 
 This is a practice project that does nothing (currently)
 
-**much ❤️ to [Honey Impact](<https://genshin.honeyhunterworld.com/>) for the data!!!**
+**much ❤️ to [Honey Impact](<https://genshin.honeyhunterworld.com/>) for the data and the [Genshin Wiki](<https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki>)!!!**
 
 ## Dependencies
 
