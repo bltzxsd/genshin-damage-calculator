@@ -21,7 +21,7 @@ const int blizzard{15};
 int artifact_set_chk() {
     std::cout << "Enter the artifact set you are using (Wanderer's Troupe / Blizzard Strayer): ";
     std::string artifact_used{string_input()};
-    for (int x{0}; x <= (int) std::size(artifact_set_name); ++x) {
+    for (size_t x{0}; x <= (int) std::size(artifact_set_name); ++x) {
         if (artifact_used == artifact_set_name[x]) {
             if ((artifact_used[0] == 'W') || (artifact_used[0] == 'w')) {
                 std::cout << "  You're using Wanderer's Troupe set. 4PC (optimal)\n\n";
