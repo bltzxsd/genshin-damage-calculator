@@ -133,4 +133,8 @@ int main() {
 
               << "   | Frostflake Bloom DMG:\t" << frostflake_bloomD << "\t|"
               << " Frostflake Bloom Crit DMG:\t" << dmgCalc::crit_dmg(frostflake_bloomD, end_ganyu_cmdg_val) << "\t|\n";
+              
+    std::cout << "Notice: These numbers are raw in value.\n"
+              << "These do not reflect accurately with resistances of each enemy type.\n"
+              << "Actual in-game values may / may not be lower than displayed here.";
 }
