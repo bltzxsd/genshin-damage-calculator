@@ -13,8 +13,8 @@ T input_handler_range(T min, T max) {
         std::cin >> input;
         if ((input < min) || (input > max)) {
             ignore_line();
-            std::cout << "Invalid Input. Please try again. input_handler_range() failed.";
-            std::cout << "This only accepts values within the range of " << min << " and " << max << '.';
+            std::cout << "Invalid Input. Please try again. input_handler_range() failed.\n";
+            std::cout << "This parameter only accepts values within the range of " << min << " and " << max << '.';
             std::cout << "\nPlease try again: ";
             continue;
         } else {
