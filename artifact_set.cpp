@@ -24,11 +24,11 @@ int artifact_set_chk() {
     for (int x{0}; x <= (int) std::size(artifact_set_name); ++x) {
         if (artifact_used == artifact_set_name[x]) {
             if ((artifact_used[0] == 'W') || (artifact_used[0] == 'w')) {
-                std::cout << "You're using Wanderer's Troupe set. 4PC (optimal)\n\n";
+                std::cout << "  You're using Wanderer's Troupe set. 4PC (optimal)\n\n";
                 return wanderers;
             }
             if ((artifact_used[0] == 'B') || (artifact_used[0] == 'b')) {
-                std::cout << "You're using Blizzard Strayer set. 4PC (optimal)\n\n";
+                std::cout << "  You're using Blizzard Strayer set. 4PC (optimal)\n\n";
                 return blizzard;
             }
         }
