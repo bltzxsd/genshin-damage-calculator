@@ -85,7 +85,7 @@ int main() {
               << "     Total ATK                -> " << total_char_ATK << '\n'
               << "     Crit DMG %               -> " << end_ganyu_cmdg_val << "%\n"
               << "     Non-Elemental DMG bonus  -> " << regular_bonus << "%\n"
-              << "     Elemental DMG bonus      -> " << cryo_dmg_bonus << "%\n"
+              << "     Elemental DMG bonus      -> " << elemental_bonus << "%\n"
               << "     Total DMG bonus          -> " << total_dmg_boost << "%\n"
               << "     Auto attack Talent Level -> " << talent_lvl << '\n';
     
