@@ -20,8 +20,7 @@ int main() {
     std::cout << "Enter the total Crit Damage% on your character: ";
     float temp_cmdg_var{input_handler_num()};
     float end_ganyu_cmdg_val = {(temp_cmdg_var == 0) ? ganyu_cmdg_val : temp_cmdg_var};
-    std::cout << "Crit DMG % on your character: " << end_ganyu_cmdg_val;
-    std::cout << "\n\n";
+    std::cout << "Crit DMG % on your character: " << end_ganyu_cmdg_val << "%\n\n";
     ignore_line();
 
     // Get weapon
