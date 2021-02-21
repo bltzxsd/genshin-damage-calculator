@@ -18,9 +18,9 @@ int main() {
     float ganyu_cmdg_val = ganyu_cdmg(ganyu_lvl);
     ignore_line();
     std::cout << "Enter the total Crit Damage% on your character: ";
-    float temp_cmdg_var{input_handler_num()};
-    float end_ganyu_cmdg_val = {(temp_cmdg_var == 0) ? ganyu_cmdg_val : temp_cmdg_var};
-    std::cout << "Crit DMG % on your character: " << end_ganyu_cmdg_val << "%\n\n";
+    float temp_cmdg_var{input_handler_range(0.0F, 307.F)};
+    float end_ganyu_cmdg_val = {(temp_cmdg_var <= ganyu_cmdg_val) ? ganyu_cmdg_val : temp_cmdg_var};
+    std::cout << "  Crit DMG % on your character: " << end_ganyu_cmdg_val << "%\n\n";
     ignore_line();
 
     // Get weapon
@@ -36,6 +36,8 @@ int main() {
 
     // Get which set is being used
     int artifact_set_used{artifact_set_chk()};
+    std::cout << "Enter the Cryo DMG Bonus% your Goblet of Eonothem has: ";
+    float cryo_dmg_bonus = input_handler_range(0.0F, 46.6F);
     ignore_line();
     // Get Flat ATK from artifact
     flat_atk_get();
@@ -54,34 +56,16 @@ int main() {
         total_perc_atk += x;
     }
 
-    // Calculating final values to be passed: 
-    std::cout << "Total flat ATK: " << total_flat_atk << '\n'
-              << "Total ATK%: " << total_perc_atk << '%' << '\n';
-
+    ignore_line();
     int talent_lvl{talent_level_get()};
     get = AutoTalents.find(talent_lvl);
     float elemental_bonus = ((artifact_set_used == blizzard) ? 15 : 0.0F);
-    std::cout << "Enter the Cryo DMG Bonus% your Goblet of Eonothem has: ";
-    ignore_line();
-    float cryo_dmg_bonus = input_handler_range(0.0F, 46.6F);
     elemental_bonus += cryo_dmg_bonus;
     float regular_bonus = ((weaponName == amos) ? 52 : 0.0F);
     float total_dmg_boost = elemental_bonus + regular_bonus;
 
-    std::cout << "\tFirst Hit Ratio:  " << first_atk_ratio << '\n'
-              << "\tSecond Hit Ratio: " << second_atk_ratio << '\n'
-              << "\tThird Hit Ratio:  " << third_atk_ratio << '\n'
-              << "\tFourth Hit Ratio: " << fourth_atk_ratio << '\n'
-              << "\tFifth Hit Ratio:  " << fifth_atk_ratio << '\n'
-              << "\tSixth Hit Ratio:  " << sixth_atk_ratio << '\n'
-              << "\tAim Shot Ratio:   " << aim_atk_ratio << '\n'
-              << "\tChargeShot Lvl 1 Ratio: " << charge_atk_ratio << '\n'
-              << "\tFrostflake Arrow Ratio: " << frostflake_arrow << '\n'
-              << "\tFrostflake Bloom Ratio: " << frostflake_bloom << '\n';
-
     int total_char_ATK{dmgCalc::basic_atk(characterbaseatk, total_perc_atk, total_flat_atk)};
-    std::cout << "Total ATK of Character: " << total_char_ATK << '\n';
-    
+
     int first_hitD{dmgCalc::outgoing_dmg(total_char_ATK, first_atk_ratio, regular_bonus)};
     int second_hitD{dmgCalc::outgoing_dmg(total_char_ATK, second_atk_ratio, regular_bonus)};
     int third_hitD{dmgCalc::outgoing_dmg(total_char_ATK, third_atk_ratio, regular_bonus)}; 
@@ -92,25 +76,61 @@ int main() {
     int charge_shotD{dmgCalc::outgoing_dmg(total_char_ATK, charge_atk_ratio, total_dmg_boost)};
     int frostflake_arrowD{dmgCalc::outgoing_dmg(total_char_ATK, frostflake_arrow, total_dmg_boost)};
     int frostflake_bloomD{dmgCalc::outgoing_dmg(total_char_ATK, frostflake_bloom, total_dmg_boost)};
- 
-    std::cout << "\n\tFirst Hit DMG:  " << first_hitD << "\n"
-              << "\tSecond Hit DMG: " << second_hitD << '\n'
-              << "\tThird Hit DMG:  " << third_hitD << '\n'
-              << "\tFourth Hit DMG: " << fourth_hitD << '\n'
-              << "\tFifth Hit DMG:  " << fifth_hitD << '\n'
-              << "\tSixth Hit DMG:  " << sixth_hitD << '\n'
-              << "\tAim Shot DMG:   " << aim_shotD << '\n'
-              << "\tChargeShot Lvl1 DMG: " << charge_shotD << '\n'
-              << "\tFrostflake Arrow DMG: " << frostflake_arrowD << '\n'
-              << "\tFrostflake Bloom DMG: " << frostflake_bloomD << '\n'
-              << "\n\tFirst Hit Crit DMG:  " << dmgCalc::crit_dmg(first_hitD, end_ganyu_cmdg_val)  << "\n"
-              << "\tSecond Hit Crit DMG: " << dmgCalc::crit_dmg(second_hitD, end_ganyu_cmdg_val) << '\n'
-              << "\tThird Hit Crit DMG:  " << dmgCalc::crit_dmg(third_hitD, end_ganyu_cmdg_val) << '\n'
-              << "\tFourth Hit Crit DMG: " << dmgCalc::crit_dmg(fourth_hitD, end_ganyu_cmdg_val) << '\n'
-              << "\tFifth Hit Crit DMG:  " << dmgCalc::crit_dmg(fifth_hitD, end_ganyu_cmdg_val) << '\n'
-              << "\tSixth Hit Crit DMG:  " << dmgCalc::crit_dmg(sixth_hitD, end_ganyu_cmdg_val) << '\n'
-              << "\tAim Shot Crit DMG:   " << dmgCalc::crit_dmg(aim_shotD, end_ganyu_cmdg_val) << '\n'
-              << "\tChargeShot Lvl 1 Crit DMG: " << dmgCalc::crit_dmg(charge_shotD, end_ganyu_cmdg_val) << '\n'
-              << "\tFrostflake Arrow Crit DMG: " << dmgCalc::crit_dmg(frostflake_arrowD, end_ganyu_cmdg_val) << '\n'
-              << "\tFrostflake Bloom Crit DMG: " << dmgCalc::crit_dmg(frostflake_bloomD, end_ganyu_cmdg_val) << '\n';
+    
+    std::cout << " Report ------------------------------------------------------------------------"
+              << "\n  Ganyu Stats:\n"
+              << "     Ganyu Base ATK           -> " << ganyu_batk << '\n'
+              << "     Equipped Weapon          -> " << name_weapon << '\n'
+              << "     Weapon Base ATK          -> " << weapon_base_dmg << '\n'
+              << "     Total ATK                -> " << total_char_ATK << '\n'
+              << "     Crit DMG %               -> " << end_ganyu_cmdg_val << "%\n"
+              << "     Non-Elemental DMG bonus  -> " << regular_bonus << "%\n"
+              << "     Elemental DMG bonus      -> " << cryo_dmg_bonus << "%\n"
+              << "     Total DMG bonus          -> " << total_dmg_boost << "%\n"
+              << "     Auto attack Talent Level -> " << talent_lvl << '\n';
+    
+    std::cout << "\n  Ratio of Auto Attacks:\n"
+              << "     First Hit Ratio          -> " << first_atk_ratio << "%\n"
+              << "     Second Hit Ratio         -> " << second_atk_ratio << "%\n"
+              << "     Third Hit Ratio          -> " << third_atk_ratio << "%\n"
+              << "     Fourth Hit Ratio         -> " << fourth_atk_ratio << "%\n"
+              << "     Fifth Hit Ratio          -> " << fifth_atk_ratio << "%\n"
+              << "     Sixth Hit Ratio          -> " << sixth_atk_ratio << "%\n"
+              << "     Aim Shot Ratio           -> " << aim_atk_ratio << "%\n"
+              << "     ChargeShot Lvl 1 Ratio   -> " << charge_atk_ratio << "%\n"
+              << "     Frostflake Arrow Ratio   -> " << frostflake_arrow << "%\n"
+              << "     Frostflake Bloom Ratio   -> " << frostflake_bloom << "%\n";
+
+
+    std::cout << " \n\n   | Regular DMG                  \t| Crit DMG\t|\n"
+              << "   |------------------------------------|---------------------------------------|"
+              << "\n   | First Hit DMG:\t\t" << first_hitD << "\t|"
+              << " First Hit Crit DMG:\t\t" << dmgCalc::crit_dmg(first_hitD, end_ganyu_cmdg_val) << "\t|\n"
+
+              << "   | Second Hit DMG:\t\t" << second_hitD << "\t|"
+              << " Second Hit Crit DMG:\t\t" << dmgCalc::crit_dmg(second_hitD, end_ganyu_cmdg_val) << "\t|\n"
+
+              << "   | Third Hit DMG:\t\t" << third_hitD << "\t|"
+              << " Third Hit Crit DMG:\t\t" << dmgCalc::crit_dmg(third_hitD, end_ganyu_cmdg_val) << "\t|\n"
+
+              << "   | Fourth Hit DMG:\t\t" << fourth_hitD << "\t|"
+              << " Fourth Hit Crit DMG:\t\t" << dmgCalc::crit_dmg(fourth_hitD, end_ganyu_cmdg_val) << "\t|\n"
+
+              << "   | Fifth Hit DMG:\t\t" << fifth_hitD << "\t|"
+              << " Fifth Hit Crit DMG:\t\t" << dmgCalc::crit_dmg(fifth_hitD, end_ganyu_cmdg_val) << "\t|\n"
+
+              << "   | Sixth Hit DMG:\t\t" << sixth_hitD << "\t|"
+              << " Sixth Hit Crit DMG:\t\t" << dmgCalc::crit_dmg(sixth_hitD, end_ganyu_cmdg_val) << "\t|\n"
+
+              << "   | Aim Shot DMG:\t\t" << aim_shotD << "\t|"
+              << " Aim Shot Crit DMG:\t\t" << dmgCalc::crit_dmg(aim_shotD, end_ganyu_cmdg_val) << "\t|\n"
+
+              << "   | ChargeShot Lvl 1 DMG:\t" << charge_shotD << "\t|"
+              << " ChargeShot Lvl 1 Crit DMG:\t" << dmgCalc::crit_dmg(charge_shotD, end_ganyu_cmdg_val) << "\t|\n"
+
+              << "   | Frostflake Arrow DMG:\t" << frostflake_arrowD << "\t|"
+              << " Frostflake Arrow Crit DMG:\t" << dmgCalc::crit_dmg(frostflake_arrowD, end_ganyu_cmdg_val) << "\t|\n"
+              
+              << "   | Frostflake Bloom DMG:\t" << frostflake_bloomD << "\t|"
+              << " Frostflake Bloom Crit DMG:\t" << dmgCalc::crit_dmg(frostflake_bloomD, end_ganyu_cmdg_val) << "\t|\n";
 }
