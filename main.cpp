@@ -63,6 +63,7 @@ int main() {
     elemental_bonus += cryo_dmg_bonus;
     float regular_bonus = ((weaponName == amos) ? 52 : 0.0F);
     float total_dmg_boost = elemental_bonus + regular_bonus;
+    std::string artifact_name{(artifact_set_used == 15) ? "Blizzard Strayer" : "Wanderer's Troupe"};
 
     int total_char_ATK{dmgCalc::basic_atk(characterbaseatk, total_perc_atk, total_flat_atk)};
 
@@ -84,6 +85,7 @@ int main() {
               << "     Weapon Base ATK          -> " << weapon_base_dmg << '\n'
               << "     Total ATK                -> " << total_char_ATK << '\n'
               << "     Crit DMG %               -> " << end_ganyu_cmdg_val << "%\n"
+              << "     Artifact Set             -> " << artifact_name << '\n'
               << "     Non-Elemental DMG bonus  -> " << regular_bonus << "%\n"
               << "     Elemental DMG bonus      -> " << elemental_bonus << "%\n"
               << "     Total DMG bonus          -> " << total_dmg_boost << "%\n"
