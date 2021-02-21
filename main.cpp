@@ -136,5 +136,5 @@ int main() {
 
     std::cout << "Notice: These numbers are raw in value.\n"
               << "        These do not reflect accurately with resistances of each enemy type.\n"
-              << "        Actual in-game values may or may not be lower than displayed here.";
+              << "        Actual in-game values may or may not be lower than displayed here.\n";
 }
