@@ -1,4 +1,5 @@
 # Ganyu-Damage-Calculator
+[![CodeFactor](https://www.codefactor.io/repository/github/b1issard/genshin-damage-calculator/badge)](https://www.codefactor.io/repository/github/b1issard/genshin-damage-calculator)
 
 This is a practice project that does nothing (currently)
 
