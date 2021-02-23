@@ -105,7 +105,7 @@ int main() {
 
 
     std::cout << " \n\n   | Regular DMG                  \t| Crit DMG\t                        |\n"
-              << "   |------------------------------------|---------------------------------------|"
+              << "   |------------------------------------+---------------------------------------|"
               << "\n   | First Hit DMG:\t\t" << first_hitD << "\t|"
               << " First Hit Crit DMG:\t\t" << dmgCalc::crit_dmg(first_hitD, end_ganyu_cmdg_val) << "\t|\n"
 
