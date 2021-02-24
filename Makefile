@@ -1,5 +1,5 @@
 CC:= clang++
-CXXFLAGS:= -std=c++17 -O3 -Ofast -Wall
+CXXFLAGS:= -std=c++17 -Wall -pedantic -O3 -Ofast
 INCLUDE:= ${CURDIR}/include
 OBJDIR:= ${CURDIR}/objs
 OUTPUT:=.out
