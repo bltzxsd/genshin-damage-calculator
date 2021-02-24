@@ -57,8 +57,19 @@ int main() {
         total_perc_atk += x;
     }
 
-    int talent_lvl{talent_level_get()};
-    get = AutoTalents.find(talent_lvl);
+    int auto_talent_level = talent_level_get();
+    get = AutoTalents.find(auto_talent_level);
+    float first_atk_ratio{auto_first_atk(auto_talent_level)};
+    float second_atk_ratio{auto_second_atk(auto_talent_level)};
+    float third_atk_ratio{auto_third_atk(auto_talent_level)};
+    float fourth_atk_ratio{auto_fourth_atk(auto_talent_level)};
+    float fifth_atk_ratio{auto_fifth_atk(auto_talent_level)};
+    float sixth_atk_ratio{auto_sixth_atk(auto_talent_level)};
+    float aim_atk_ratio{auto_aimshot(auto_talent_level)};
+    float charge_atk_ratio{auto_chargeshot(auto_talent_level)};
+    float frostflake_arrow{auto_frostflake(auto_talent_level)};
+    float frostflake_bloom{auto_frostflake_bloom(auto_talent_level)};
+
     float elemental_bonus = ((artifact_set_used == blizzard) ? 15 : 0.0F);
     elemental_bonus += cryo_dmg_bonus;
     float regular_bonus = ((weaponName == amos) ? 52 : 0.0F);
@@ -89,7 +100,7 @@ int main() {
               << "     Non-Elemental DMG bonus  -> " << regular_bonus << "%\n"
               << "     Elemental DMG bonus      -> " << elemental_bonus << "%\n"
               << "     Total DMG bonus          -> " << total_dmg_boost << "%\n"
-              << "     Auto attack Talent Level -> " << talent_lvl << '\n';
+              << "     Auto attack Talent Level -> " << auto_talent_level << '\n';
     
     std::cout << "\n  Ratio of Auto Attacks:\n"
               << "     First Hit Ratio          -> " << first_atk_ratio << "%\n"
@@ -105,7 +116,7 @@ int main() {
 
 
     std::cout << " \n\n   | Regular DMG                  \t| Crit DMG\t                        |\n"
-              << "   |------------------------------------+---------------------------------------|"
+              << "   |------------------------------------|---------------------------------------|"
               << "\n   | First Hit DMG:\t\t" << first_hitD << "\t|"
               << " First Hit Crit DMG:\t\t" << dmgCalc::crit_dmg(first_hitD, end_ganyu_cmdg_val) << "\t|\n"
 
