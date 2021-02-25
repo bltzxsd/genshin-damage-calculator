@@ -1,4 +1,5 @@
 # Ganyu-Damage-Calculator
+
 [![CodeFactor](https://www.codefactor.io/repository/github/b1issard/genshin-damage-calculator/badge)](https://www.codefactor.io/repository/github/b1issard/genshin-damage-calculator)
 
 This is a practice project that does nothing (currently)
@@ -20,32 +21,19 @@ this only works if using GNU/Linux
 git clone https://github.com/b1issard/genshin-damage-calculator.git
 ```
 
-### Linux way
+### Linux
 
 ```shell
 cd genshin-damage-calculator/
 make
 ```
 
-### Windows way
+### Windows
 
-If on Windows, you have to compile it manually unfortunately :
-I would recommend you to install the [LLVM toolchain 64bit](<https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/LLVM-11.0.0-win64.exe>) for this since MSVC needs VS20XX and MinGW is dumb ( i couldnt get it to compile successfully on win but it worked on wsl )
-**UPDATE: compiling on windows is a nono since it doesn't let me write unsafe code**
-*( just use WSL :) )*
-
-```cpp
-auto get -> second.x
-```
-
-which evalulates to:
-
-```cpp
-std::unordered_map<int, Talent>::const_iterator get -> second.x
-```
-
-where `..talent>` is a struct of values for talents
+If on Windows, you can get the binary or build it manually :
+I would recommend you to install the [LLVM toolchain 64bit](<https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.0/LLVM-11.0.0-win64.exe>)
+or [MinGW](<https://sourceforge.net/projects/mingw-w64/>). I used Clang simply because its already available directly on Windows.
 
 ```shell
-clang++ -std=c++17 -Wall -O2 -Ofast *.cpp -o dmg_calc.exe
+clang++ -std=c++17 -Wall -O3 -Ofast -pedantic -static *.cpp -o dmg_calc.exe
 ```
