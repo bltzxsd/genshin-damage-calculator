@@ -18,7 +18,7 @@ this only works if using GNU/Linux
 ### Donwloading the repository
 
 ```shell
-git clone https://github.com/b1issard/genshin-damage-calculator.git
+git clone https://github.com/bltzxsd/genshin-damage-calculator.git
 ```
 
 ### Linux
